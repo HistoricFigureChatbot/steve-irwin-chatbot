@@ -1,0 +1,38 @@
+.conservation-page-container {
+  height: 100vh;
+  width: 100%;
+  background-image: url('/background.png');
+  background-size: 110%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  overflow: hidden;
+}
+
+.conservation-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 70px;
+  padding: 2rem;
+}
+
+.conservation-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+  font-family: 'Akshar', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .conservation-content h1 {
+    font-size: 2rem;
+  }
+}

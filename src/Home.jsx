@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar.jsx";
 import "./Home.css";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
 
   return (
     <div className="home-container">
+      <Navbar />
       <div className="home-content">
         <div className="steve-image-container">
           <img 
