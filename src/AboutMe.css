@@ -1,16 +1,49 @@
 .about-page-container {
   height: 100vh;
   width: 100%;
-  background-image: url('/background.png');
-  background-size: 110%;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   margin: 0;
   overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  isolation: isolate;
 }
 
+.about-page-container::before,
+.about-page-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.about-page-container::before {
+  background-image: url('/background.png');
+  opacity: 1;
+}
+
+.about-page-container::after {
+  background-image: url('/background-dark.png');
+  opacity: 0;
+}
+
+html[data-theme="dark"] .about-page-container::before {
+  opacity: 0;
+}
+
+html[data-theme="dark"] .about-page-container::after {
+  opacity: 1;
+}
 .about-content {
   flex: 1;
   display: flex;
@@ -24,10 +57,10 @@
 .about-content h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: #333;
+  color: var(--heading-color);
   text-align: center;
   margin: 0;
-  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+  text-shadow: 2px 2px 4px var(--heading-shadow);
   font-family: 'Akshar', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 

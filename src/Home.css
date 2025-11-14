@@ -1,16 +1,52 @@
 .home-container {
   height: 100vh;
   width: 100%;
-  background-image: url('/background.png');
-  background-size: 110%;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   padding-top: 120px;
   margin: 0;
+  padding-left: 0;
+  padding-right: 0;
   overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  isolation: isolate;
+}
+
+.home-container::before,
+.home-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.home-container::before {
+  background-image: url('/background.png');
+  opacity: 1;
+}
+
+.home-container::after {
+  background-image: url('/background-dark.png');
+  opacity: 0;
+}
+
+html[data-theme="dark"] .home-container::before {
+  opacity: 0;
+}
+
+html[data-theme="dark"] .home-container::after {
+  opacity: 1;
 }
 
 .home-content {
@@ -39,10 +75,10 @@
 .greeting-text {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #333;
+  color: var(--heading-color);
   text-align: center;
   margin: 0;
-  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+  text-shadow: 2px 2px 4px var(--heading-shadow);
   font-family: 'Akshar', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
@@ -55,22 +91,26 @@
   width: 100%;
   padding: 1rem 1.5rem;
   font-size: 1rem;
-  border: 2px solid #ddd;
+  border: 2px solid var(--input-border);
   border-radius: 50px;
   outline: none;
   transition: all 0.3s ease;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--input-text);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-family: 'Akshar', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 .home-input:focus {
-  border-color: #4a90e2;
+  border-color: var(--nav-link-hover-text);
   box-shadow: 0 4px 20px rgba(74, 144, 226, 0.3);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .home-input::placeholder {
-  color: #999;
+  color: var(--placeholder-color);
 }
 
 @media (max-width: 768px) {
