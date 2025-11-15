@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Navbar from "./Navbar.jsx";
 import "./ChatPage.css";
 
 export default function ChatPage() {
@@ -52,7 +51,6 @@ export default function ChatPage() {
 
   return (
     <div className="chat-page-container">
-      <Navbar />
       <div className="chat-content">
         <div className="messages-wrapper">
           <div className="chat-container-box">
