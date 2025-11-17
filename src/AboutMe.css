@@ -1,14 +1,44 @@
 .about-page-container {
   min-height: 100vh;
   width: 100%;
-  background-image: url('/background.png');
-  background-size: 110%;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   margin: 0;
-  overflow: hidden;
+  overflow-y: auto;
+  position: relative;
+  isolation: isolate;
+}
+
+.about-page-container::before,
+.about-page-container::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.about-page-container::before {
+  background-image: url('/background.png');
+  opacity: 1;
+}
+
+.about-page-container::after {
+  background-image: url('/background-dark.png');
+  opacity: 0;
+}
+
+html[data-theme="dark"] .about-page-container::before {
+  opacity: 0;
+}
+
+html[data-theme="dark"] .about-page-container::after {
+  opacity: 1;
 }
 
 .about-content {
@@ -27,9 +57,13 @@
   font-weight: 700;
   color: var(--heading-color);
   text-align: center;
-  margin: 0;
+  margin-bottom: 2rem;
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
   font-family: 'Akshar', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+html[data-theme="dark"] .about-content h1 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .about-layout {
@@ -72,12 +106,20 @@
   font-family: 'Akshar', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+html[data-theme="dark"] .about-text {
+  background-color: rgba(40, 40, 40, 0.9);
+}
+
 .about-text h2 {
   font-size: 1.8rem;
   color: #2c5f2d;
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: 600;
+}
+
+html[data-theme="dark"] .about-text h2 {
+  color: #5dba6f;
 }
 
 .about-text p {
@@ -88,6 +130,10 @@
   text-align: justify;
 }
 
+html[data-theme="dark"] .about-text p {
+  color: #e0e0e0;
+}
+
 .signature {
   text-align: right;
   font-style: italic;
@@ -95,6 +141,10 @@
   color: #2c5f2d;
   margin-top: 2rem;
   font-size: 1.2rem;
+}
+
+html[data-theme="dark"] .signature {
+  color: #5dba6f;
 }
 
 @media (max-width: 1200px) {
