@@ -72,6 +72,7 @@ html[data-theme="dark"] .about-content h1 {
   max-width: 1400px;
   width: 100%;
   align-items: flex-start;
+  justify-content: center;
 }
 
 .images-left,

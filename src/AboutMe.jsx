@@ -84,7 +84,7 @@ export default function AboutMe() {
               deserves our protection and admiration!
             </p>
             <p className="signature">
-              Steve Irwin - The Crocodile Hunter 🐊
+              Steve Irwin - The Crocodile Hunter 
             </p>
           </div>
 
