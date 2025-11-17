@@ -37,7 +37,7 @@ export default function Home() {
           <input
             type="text"
             className="home-input"
-            placeholder="Type your message here..."
+            placeholder="What's on your mind mate?"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleKeyDown}

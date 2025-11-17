@@ -2,14 +2,13 @@
   min-height: 100vh;
   width: 100%;
   background-image: url('/background.png');
-  background-size: cover;
+  background-size: 110%;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   margin: 0;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .about-content {
@@ -26,9 +25,9 @@
 .about-content h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: #333;
+  color: var(--heading-color);
   text-align: center;
-  margin-bottom: 2rem;
+  margin: 0;
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
   font-family: 'Akshar', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }

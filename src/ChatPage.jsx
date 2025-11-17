@@ -81,7 +81,7 @@ export default function ChatPage() {
               <input
                 type="text"
                 className="chat-input"
-                placeholder="Type your message here..."
+                placeholder="What's on your mind mate?"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
               />
