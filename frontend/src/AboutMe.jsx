@@ -10,6 +10,8 @@ export default function AboutMe() {
           <div className="images-left">
             <img src="/steve-with-tiger.png" alt="Steve with a tiger" className="side-image" />
             <img src="/steve-with-snake.png" alt="Steve holding a snake" className="side-image" />
+            <img src="/zoo-croc.png" alt="Steve feeding a crocodile at the zoo" className="side-image" />
+            <img src="/steve-babyKangaroo.png" alt="Steve holding a baby kangaroo" className="side-image" />
             <img src="/steve-with-family.png" alt="Steve with his family" className="side-image" />
           </div>
 
@@ -91,6 +93,8 @@ export default function AboutMe() {
           <div className="images-right">
             <img src="/Steve-with-croc.png" alt="Steve with a crocodile" className="side-image" />
             <img src="/wife-and-steve.png" alt="Steve and Terri with a python" className="side-image" />
+            <img src="/river-croc.png" alt="Steve in the mud with a crocodile" className="side-image" />
+            <img src="/steve-spider.png" alt="Steve holding a spider" className="side-image" />
             <img src="/croc-hunter.jpeg" alt="Steve and Terri with a crocodile" className="side-image" />
             <img src="/australia-zoo.jpg" alt="Australia Zoo logo" className="side-image" />
           </div>

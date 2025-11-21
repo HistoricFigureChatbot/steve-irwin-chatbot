@@ -1,0 +1,51 @@
+{
+  "greetings": [
+    "G'day mate! How are ya goin'? Ready to talk about some incredible wildlife?",
+    "Crikey! Hello there, legend! What can I help you with today?",
+    "G'day! Steve Irwin here, ready to share some wildlife knowledge with ya!",
+    "Hello mate! Isn't it a beautiful day to learn about animals?"
+  ],
+  "crocodiles": [
+    "Crikey! Crocodiles are absolutely magnificent creatures! These prehistoric beauties have been around for millions of years. The saltwater crocodile is the largest reptilian predator on Earth, mate!",
+    "Now, crocs are beautiful animals, but you've gotta respect 'em! They've got the strongest bite force of any living animal. Isn't that incredible?",
+    "I've been working with crocs since I was nine years old! They're apex predators and essential to keeping our ecosystems balanced. We need to protect these beauties!",
+    "Saltwater crocs can grow up to 7 meters long and weigh over 1000 kilograms! They're living dinosaurs, mate, and they deserve our respect and protection."
+  ],
+  "snakes": [
+    "Ah, snakes! Beautiful creatures, mate! Australia has some of the most venomous snakes in the world, but they're not out to get ya. They're just protecting themselves!",
+    "The inland taipan is the most venomous snake on Earth! But you know what? They're shy and rarely seen. Snakes are more afraid of you than you are of them!",
+    "I reckon snakes are some of the most misunderstood creatures on the planet. Each one is a beauty in its own right, whether it's venomous or not!",
+    "Pythons are incredible constrictors! They don't use venom - they squeeze their prey. Nature is absolutely amazing, isn't it?"
+  ],
+  "conservation": [
+    "Conservation is my life's mission, mate! Every species, no matter how small or dangerous, plays a vital role in our world. If we lose them, we lose a part of ourselves.",
+    "Through Wildlife Warriors, we're fighting to protect endangered species and their habitats all around the globe. Everyone can make a difference!",
+    "It's not just about animals in faraway places, conservation starts in your own backyard! Respect nature and the creatures around you.",
+    "We're working hard to protect crocodiles from illegal poaching and habitat destruction. These magnificent creatures need our help to survive!"
+  ],
+  "family": [
+    "My family is everything to me! Terri is an absolute legend, we met back in 1991 and it was love at first sight. She's my partner in everything!",
+    "Bindi and Robert are growing up to be amazing wildlife warriors! I'm so proud watching them learn about and care for animals. Maybe one day they'll take over the zoo!",
+    "My mum and dad started it all with the Queensland Reptile and Fauna Park. Dad taught me everything about crocs, he's the best!",
+    "Family and wildlife, that's what life is all about, mate! Sharing this passion with the people you love is the greatest gift."
+  ],
+  "zoo": [
+    "Australia Zoo is not just a zoo, you see it's a conservation center aswell! We've got over 1,200 animals here, and every one of them gets the best care possible.",
+    "What started as my parents' small reptile park has grown into one of the biggest wildlife conservation facilities in the world! Crikey!",
+    "At Australia Zoo, we're not just showing people animals, we're teaching them why conservation matters. Every visitor becomes a wildlife warrior!",
+    "The zoo is home to some of the most incredible animals on Earth! From crocs to tigers to Tasmanian devils, we're working to protect them all!"
+  ],
+  "facts": [
+    "Did you know? Saltwater crocodiles can hold their breath for over an hour!",
+    "Snake fact: The inland taipan's venom is 50 times more toxic than a king cobra's!",
+    "Fun fact: Koalas sleep up to 22 hours a day! They're saving energy because eucalyptus leaves are low in nutrients.",
+    "Amazing fact: Kangaroos can't walk backwards! They can only hop forward.",
+    "Wildlife fact: Tasmanian devils have the strongest bite relative to body size of any living mammal!"
+  ],
+  "default": [
+    "That's a ripper question, mate! While I might not have all the answers, I'm passionate about wildlife and conservation. What else would you like to know?",
+    "Crikey! I'm not sure I have the answer to that mate. Why don't we chat about some wildlife instead?",
+    "Good on ya for asking! While that's not my area of expertise, I'm always happy to talk about animals and conservation!",
+    "Beauty! That's an interesting topic. Is there anything specific about wildlife or conservation you'd like to know about?"
+  ]
+}
