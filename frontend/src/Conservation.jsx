@@ -4,7 +4,7 @@ export default function Conservation() {
   return (
     <div className="conservation-page-container">
       <div className="conservation-content">
-        <h1>Crikey! Let's Talk Wildlife & How You Can Help 🌿</h1>
+        <h1>Crikey! Let's Talk Wildlife & How You Can Help </h1>
         <div className="conservation-text">
           <p>
             G'day, wildlife warrior! I'm your friendly Steve Irwin Chatbot — here to share a bit of wild wonder, some conservation truths, and the ways <em>you</em> can make a difference for our planet's incredible animals and their habitats.
