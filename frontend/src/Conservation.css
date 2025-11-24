@@ -1,16 +1,12 @@
 .conservation-page-container {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
   margin: 0;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  overflow-y: auto;
+  position: relative;
   isolation: isolate;
 }
 
@@ -50,9 +46,12 @@ html[data-theme="dark"] .conservation-page-container::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding-top: 70px;
-  padding: 2rem;
+  justify-content: flex-start;
+  padding-top: 100px;
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  overflow-y: auto;
 }
 
 .conservation-content h1 {
@@ -60,13 +59,71 @@ html[data-theme="dark"] .conservation-page-container::after {
   font-weight: 700;
   color: var(--heading-color);
   text-align: center;
-  margin: 0;
-  text-shadow: 2px 2px 4px var(--heading-shadow);
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
   font-family: 'Akshar', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+html[data-theme="dark"] .conservation-content h1 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.conservation-text {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  max-width: 800px;
+  width: 100%;
+  font-family: 'Akshar', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+html[data-theme="dark"] .conservation-text {
+  background-color: rgba(40, 40, 40, 0.9);
+}
+
+.conservation-text h2 {
+  font-size: 1.8rem;
+  color: #2c5f2d;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+html[data-theme="dark"] .conservation-text h2 {
+  color: #5dba6f;
+}
+
+.conservation-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+html[data-theme="dark"] .conservation-text p {
+  color: #e0e0e0;
 }
 
 @media (max-width: 768px) {
   .conservation-content h1 {
     font-size: 2rem;
+  }
+
+  .conservation-text {
+    padding: 1.5rem;
+  }
+
+  .conservation-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .conservation-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
