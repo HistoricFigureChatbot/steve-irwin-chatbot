@@ -212,11 +212,7 @@ html[data-theme="dark"] .signature {
 @media (max-width: 480px) {
   .images-left,
   .images-right {
-    flex-direction: column;
-  }
-
-  .side-image {
-    width: 100%;
+    display: none;
   }
 
   .about-content {
