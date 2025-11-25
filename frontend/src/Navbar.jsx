@@ -4,6 +4,7 @@ import { useTheme } from "./ThemeContext.jsx";
 import "./Navbar.css";
 
 export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { isDarkMode, toggleTheme } = useTheme();
   const dropdownRef = useRef(null);
@@ -25,6 +26,14 @@ export default function Navbar() {
     };
   }, [isDropdownOpen]);
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
@@ -32,21 +41,23 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <Link to="/" className="navbar-title-link">
-          <h1 className="navbar-title">Steve Irwin Chatbot</h1>
+        <Link to="/" className="navbar-title-link" onClick={closeMobileMenu}>
+          <h1 className="navbar-title">Steve Irwin</h1>
         </Link>
       </div>
-      <div className="navbar-center">
-        <Link to="/chat" className="nav-link">
+      
+      <div className={`navbar-center ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+        <Link to="/chat" className="nav-link" onClick={closeMobileMenu}>
           Chat
         </Link>
-        <Link to="/about" className="nav-link">
+        <Link to="/about" className="nav-link" onClick={closeMobileMenu}>
           About Me
         </Link>
-        <Link to="/conservation" className="nav-link">
+        <Link to="/conservation" className="nav-link" onClick={closeMobileMenu}>
           Conservation
         </Link>
       </div>
+      
       <div className="navbar-right">
         <div className="settings-container" ref={dropdownRef}>
           <button 
@@ -74,6 +85,28 @@ export default function Navbar() {
             </div>
           )}
         </div>
+        
+        <button
+          className="mobile-menu-btn"
+          onClick={toggleMobileMenu}
+          aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            {isMobileMenuOpen ? (
+              <>
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </>
+            ) : (
+              <>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </>
+            )}
+          </svg>
+        </button>
       </div>
     </nav>
   );
