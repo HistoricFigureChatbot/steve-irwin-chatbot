@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "./ThemeContext.jsx";
 import "./Navbar.css";
@@ -8,6 +8,8 @@ export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { isDarkMode, toggleTheme } = useTheme();
   const dropdownRef = useRef(null);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     // Close dropdown when clicking outside
@@ -42,7 +44,8 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-left">
         <Link to="/" className="navbar-title-link" onClick={closeMobileMenu}>
-          <h1 className="navbar-title">Steve Irwin</h1>
+          {!isHomePage && <img src="/steve.png" alt="Steve Irwin" className="navbar-logo" />}
+          <h1 className={`navbar-title ${!isHomePage ? 'with-logo' : ''}`}>Steve Irwin</h1>
         </Link>
       </div>
       

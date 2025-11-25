@@ -23,6 +23,29 @@
 .navbar-title-link {
   text-decoration: none;
   color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navbar-logo {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--navbar-text, #333);
+  animation: fadeInLogo 0.4s ease-in;
+}
+
+@keyframes fadeInLogo {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .navbar-title {
@@ -32,8 +55,23 @@
   margin: 0;
   font-family: 'Akshar', system-ui, Avenir, Helvetica, Arial, sans-serif;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: color 0.2s, transform 0.4s ease-out, opacity 0.4s ease-out;
   white-space: nowrap;
+}
+
+.navbar-title.with-logo {
+  animation: slideInTitle 0.4s ease-out;
+}
+
+@keyframes slideInTitle {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .navbar-title:hover {
@@ -256,6 +294,11 @@ html[data-theme="dark"] .settings-icon {
   
   .navbar-title {
     font-size: 1.1rem;
+  }
+
+  .navbar-logo {
+    width: 36px;
+    height: 36px;
   }
 
   .mobile-menu-btn {
