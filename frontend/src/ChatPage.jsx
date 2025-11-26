@@ -1,6 +1,8 @@
 import { useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./ChatPage.css";
+
+const API_URL = "http://localhost:3001/api";
 
 export default function ChatPage() {
   const location = useLocation();
@@ -8,6 +10,50 @@ export default function ChatPage() {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [error, setError] = useState(null);
+  const messagesEndRef = useRef(null);
+
+  // Auto-scroll to bottom when messages change
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, isTyping]);
+
+  // Function to send message to backend API
+  const sendMessageToAPI = async (messageText) => {
+    try {
+      // Add minimum delay to ensure typing indicator is visible
+      const [response] = await Promise.all([
+        fetch(`${API_URL}/chat`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ message: messageText }),
+        }),
+        new Promise(resolve => setTimeout(resolve, 800)) // Minimum 800ms delay
+      ]);
+
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      
+      if (data.success && data.data?.response) {
+        return data.data.response;
+      } else {
+        throw new Error('Invalid response from server');
+      }
+    } catch (err) {
+      console.error('Error calling API:', err);
+      setError('Crikey! Having trouble connecting to the server, mate!');
+      return "G'day! I'm having a bit of trouble right now, but I'll be back soon!";
+    }
+  };
 
   useEffect(() => {
     if (initialMessage) {
@@ -17,35 +63,37 @@ export default function ChatPage() {
       // Show typing indicator
       setIsTyping(true);
       
-      // Simulate bot response after a delay
-      setTimeout(() => {
+      // Get response from API
+      sendMessageToAPI(initialMessage).then((botResponse) => {
         setMessages([
           { type: "user", text: initialMessage },
-          { type: "bot", text: "Crikey! That's a ripper of a question, mate! Let me tell ya..." }
+          { type: "bot", text: botResponse }
         ]);
         setIsTyping(false);
-      }, 1500);
+      });
     }
   }, [initialMessage]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (inputValue.trim()) {
-      const newUserMessage = { type: "user", text: inputValue };
+      const userMessage = inputValue.trim();
+      const newUserMessage = { type: "user", text: userMessage };
       setMessages([...messages, newUserMessage]);
       setInputValue("");
+      setError(null);
       
       // Show typing indicator
       setIsTyping(true);
       
-      // Simulate bot response after a delay
-      setTimeout(() => {
-        setMessages(prev => [
-          ...prev,
-          { type: "bot", text: "G'day! I'm working on getting you a proper response, mate!" }
-        ]);
-        setIsTyping(false);
-      }, 1500);
+      // Get response from API
+      const botResponse = await sendMessageToAPI(userMessage);
+      
+      setMessages(prev => [
+        ...prev,
+        { type: "bot", text: botResponse }
+      ]);
+      setIsTyping(false);
     }
   };
 
@@ -54,6 +102,11 @@ export default function ChatPage() {
       <div className="chat-content">
         <div className="messages-wrapper">
           <div className="chat-container-box">
+            {error && (
+              <div className="error-banner">
+                {error}
+              </div>
+            )}
             <div className="messages-container">
               {messages.map((msg, index) => (
                 <div key={index} className={`message ${msg.type}-message`}>
@@ -75,6 +128,7 @@ export default function ChatPage() {
                   </div>
                 </div>
               )}
+              <div ref={messagesEndRef} />
             </div>
             
             <form onSubmit={handleSubmit} className="chat-input-form">
@@ -84,8 +138,9 @@ export default function ChatPage() {
                 placeholder="What's on your mind mate?"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
+                disabled={isTyping}
               />
-              <button type="submit" className="send-button">
+              <button type="submit" className="send-button" disabled={isTyping}>
                 Send
               </button>
             </form>
