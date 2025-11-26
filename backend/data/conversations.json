@@ -1,0 +1,152 @@
+{
+  "topics": {
+    "greetings": {
+      "keywords": ["hello", "hi", "hey", "g'day", "howdy", "greetings"],
+      "responseKey": "greetings"
+    },
+    "farewells": {
+      "keywords": ["bye", "goodbye", "see you", "farewell", "later", "cheers"],
+      "responseKey": "farewells"
+    },
+    "crocodiles": {
+      "keywords": ["crocodile", "croc", "alligator", "salty", "saltie"],
+      "responseKey": "animals.crocodiles"
+    },
+    "snakes": {
+      "keywords": ["snake", "python", "viper", "cobra", "taipan", "serpent"],
+      "responseKey": "animals.snakes"
+    },
+    "spiders": {
+      "keywords": ["spider", "tarantula", "arachnid", "funnel web", "huntsman"],
+      "responseKey": "animals.spiders"
+    },
+    "kangaroos": {
+      "keywords": ["kangaroo", "roo", "wallaby", "joey", "marsupial"],
+      "responseKey": "animals.kangaroos"
+    },
+    "koalas": {
+      "keywords": ["koala", "bear"],
+      "responseKey": "animals.koalas"
+    },
+    "sharks": {
+      "keywords": ["shark", "great white", "jaws"],
+      "responseKey": "animals.sharks"
+    },
+    "tigers": {
+      "keywords": ["tiger", "big cat"],
+      "responseKey": "animals.tigers"
+    },
+    "elephants": {
+      "keywords": ["elephant", "trunk"],
+      "responseKey": "animals.elephants"
+    },
+    "family": {
+      "keywords": ["family", "kids", "children"],
+      "responseKey": "family.kids"
+    },
+    "bindi": {
+      "keywords": ["bindi"],
+      "responseKey": "family.bindi"
+    },
+    "robert": {
+      "keywords": ["robert"],
+      "responseKey": "family.robert"
+    },
+    "terri": {
+      "keywords": ["terri", "wife"],
+      "responseKey": "family.terri"
+    },
+    "parents": {
+      "keywords": ["dad", "mum", "mom", "parents", "father", "mother"],
+      "responseKey": "family.parents"
+    },
+    "conservation": {
+      "keywords": ["conservation", "protect", "save", "wildlife warrior", "preserve"],
+      "responseKey": "conservation.general"
+    },
+    "endangered": {
+      "keywords": ["endangered", "extinction", "threatened"],
+      "responseKey": "conservation.endangered"
+    },
+    "climate": {
+      "keywords": ["climate", "warming", "temperature"],
+      "responseKey": "conservation.climate"
+    },
+    "australia_zoo": {
+      "keywords": ["australia zoo", "zoo", "crocoseum", "park"],
+      "responseKey": "australia_zoo"
+    },
+    "television": {
+      "keywords": ["tv", "television", "show", "crocodile hunter", "filming"],
+      "responseKey": "television"
+    },
+    "australia": {
+      "keywords": ["australia", "outback", "barrier reef"],
+      "responseKey": "australia"
+    },
+    "safety": {
+      "keywords": ["safe", "safety", "careful", "stay safe"],
+      "responseKey": "safety"
+    },
+    "facts": {
+      "keywords": ["fact", "tell me", "did you know"],
+      "responseKey": "facts"
+    },
+    "passion": {
+      "keywords": ["passion", "love", "favorite", "why", "inspire"],
+      "responseKey": "passion"
+    },
+    "danger": {
+      "keywords": ["danger", "dangerous", "scary", "afraid", "fear", "risky"],
+      "responseKey": "danger"
+    },
+    "default": {
+      "keywords": [],
+      "responseKey": "default"
+    }
+  },
+
+  "dialogueTrees": {
+    "crocodiles": {
+      "habitat": {
+        "responseKey": "dialogueTrees.crocodiles.habitat"
+      },
+      "hunting": {
+        "responseKey": "dialogueTrees.crocodiles.hunting"
+      },
+      "catching": {
+        "responseKey": "dialogueTrees.crocodiles.catching"
+      },
+      "breeding": {
+        "responseKey": "dialogueTrees.crocodiles.breeding"
+      }
+    },
+    "snakes": {
+      "venomous": {
+        "responseKey": "dialogueTrees.snakes.venomous"
+      },
+      "pythons": {
+        "responseKey": "dialogueTrees.snakes.pythons"
+      }
+    },
+    "family": {
+      "terri": {
+        "responseKey": "dialogueTrees.family.terri"
+      },
+      "bindi": {
+        "responseKey": "dialogueTrees.family.bindi"
+      },
+      "robert": {
+        "responseKey": "dialogueTrees.family.robert"
+      }
+    },
+    "conservation": {
+      "endangered": {
+        "responseKey": "dialogueTrees.conservation.endangered"
+      },
+      "climate": {
+        "responseKey": "dialogueTrees.conservation.climate"
+      }
+    }
+  }
+}

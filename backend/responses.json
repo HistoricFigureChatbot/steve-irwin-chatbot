@@ -1,208 +1,205 @@
 {
   "greetings": [
-    "G'day mate! How are ya goin'? Ready to talk about some incredible wildlife?",
-    "Crikey! Hello there, legend! What can I help you with today?",
-    "G'day! Steve Irwin here, ready to share some wildlife knowledge with ya!",
-    "Hello mate! Isn't it a beautiful day to learn about animals?",
-    "Welcome, wildlife warrior! What can I tell ya about today?",
-    "Crikey mate! Great to see ya! Let's talk about some amazing creatures!"
+    { "text": "G'day mate! How are ya goin'? Ready to talk about some incredible wildlife?", "probability": 0.2 },
+    { "text": "Crikey! Hello there, legend! What can I help you with today?", "probability": 0.25 },
+    { "text": "G'day! Steve Irwin here, ready to share some wildlife knowledge with ya!", "probability": 0.2 },
+    { "text": "Hello mate! Isn't it a beautiful day to learn about animals?", "probability": 0.15 },
+    { "text": "Welcome, wildlife warrior! What can I tell ya about today?", "probability": 0.1 },
+    { "text": "Crikey mate! Great to see ya! Let's talk about some amazing creatures!", "probability": 0.1 }
   ],
-  
   "farewells": [
-    "See ya later, mate! Remember, every creature counts!",
-    "Crikey, it's been great chatting! Keep being a wildlife warrior!",
-    "Bye for now, legend! Don't forget to respect and protect our wildlife!",
-    "Catch ya later! Remember, conservation starts with you!",
-    "Take care, mate! Keep learning about our incredible animals!",
-    "Good on ya! See you next time, wildlife warrior!"
+    { "text": "See ya later, mate! Remember, every creature counts!", "probability": 0.25 },
+    { "text": "Crikey, it's been great chatting! Keep being a wildlife warrior!", "probability": 0.2 },
+    { "text": "Bye for now, legend! Don't forget to respect and protect our wildlife!", "probability": 0.15 },
+    { "text": "Catch ya later! Remember, conservation starts with you!", "probability": 0.2 },
+    { "text": "Take care, mate! Keep learning about our incredible animals!", "probability": 0.1 },
+    { "text": "Good on ya! See you next time, wildlife warrior!", "probability": 0.1 }
   ],
-  
+  "default": [
+    { "text": "That's a ripper question, mate! I'm best at talking about crocodiles, snakes, and wildlife conservation. What interests you?", "probability": 0.4 },
+    { "text": "Crikey! I'm not sure about that one, mate. But I can tell you all about amazing wildlife! What would you like to know?", "probability": 0.3 },
+    { "text": "Beauty! Let's talk about something I know - like crocodiles, conservation, or Australia Zoo!", "probability": 0.3 }
+  ],
   "animals": {
     "crocodiles": [
-      "Crikey! Crocodiles are absolutely magnificent creatures! These prehistoric beauties have been around for millions of years. The saltwater crocodile is the largest reptilian predator on Earth, mate!",
-      "Now, crocs are beautiful animals, but you've gotta respect 'em! They've got the strongest bite force of any living animal. Isn't that incredible?",
-      "I've been working with crocs since I was nine years old! They're apex predators and essential to keeping our ecosystems balanced. We need to protect these beauties!",
-      "Saltwater crocs can grow up to 7 meters long and weigh over 1000 kilograms! They're living dinosaurs, mate, and they deserve our respect and protection.",
-      "The death roll! That's how crocs take down large prey. They grab on and spin rapidly underwater. It's one of nature's most powerful hunting techniques!"
+      { "text": "Crikey! Crocodiles are absolutely magnificent creatures! These prehistoric beauties have been around for millions of years. The saltwater crocodile is the largest reptilian predator on Earth, mate!", "probability": 0.3 },
+      { "text": "Now, crocs are beautiful animals, but you've gotta respect 'em! They've got the strongest bite force of any living animal. Isn't that incredible?", "probability": 0.25 },
+      { "text": "I've been working with crocs since I was nine years old! They're apex predators and essential to keeping our ecosystems balanced. We need to protect these beauties!", "probability": 0.25 },
+      { "text": "Saltwater crocs can grow up to 7 meters long and weigh over 1000 kilograms! They're living dinosaurs, mate, and they deserve our respect and protection.", "probability": 0.2 }
     ],
-    
     "snakes": [
-      "Ah, snakes! Beautiful creatures, mate! Australia has some of the most venomous snakes in the world, but they're not out to get ya. They're just protecting themselves!",
-      "The inland taipan is the most venomous snake on Earth! But you know what? They're shy and rarely seen. Snakes are more afraid of you than you are of them!",
-      "I reckon snakes are some of the most misunderstood creatures on the planet. Each one is a beauty in its own right, whether it's venomous or not!",
-      "Pythons are incredible constrictors! They don't use venom, they squeeze their prey. Nature is absolutely amazing, isn't it?",
-      "Never kill a snake, mate! If you see one, back away slowly and give it space. They're just trying to survive like the rest of us!"
+      { "text": "Ah, snakes! Beautiful creatures, mate! Australia has some of the most venomous snakes in the world, but they're not out to get ya. They're just protecting themselves!", "probability": 0.3 },
+      { "text": "The inland taipan is the most venomous snake on Earth! But you know what? They're shy and rarely seen. Snakes are more afraid of you than you are of them!", "probability": 0.25 },
+      { "text": "I reckon snakes are some of the most misunderstood creatures on the planet. Each one is a beauty in its own right, whether it's venomous or not!", "probability": 0.25 },
+      { "text": "Never kill a snake, mate! If you see one, back away slowly and give it space. They're just trying to survive like the rest of us!", "probability": 0.2 }
     ],
-    
     "spiders": [
-      "Spiders are incredible little hunters! People are terrified of them, but most spiders are completely harmless to humans.",
-      "The funnel web spider is one of the most dangerous in the world, but crikey, what an amazing creature! Their venom is designed for insects, not humans.",
-      "Huntsman spiders look scary because they're huge, but they're actually harmless! They eat cockroaches and other pests. They're doing you a favor, mate!",
-      "Spiders are nature's pest control! Without them, we'd be overrun with insects. Give 'em the respect they deserve!"
+      { "text": "Spiders are incredible little hunters! People are terrified of them, but most spiders are completely harmless to humans.", "probability": 0.35 },
+      { "text": "The funnel web spider is one of the most dangerous in the world, but crikey, what an amazing creature! Their venom is designed for insects, not humans.", "probability": 0.35 },
+      { "text": "Huntsman spiders look scary because they're huge, but they're actually harmless! They eat cockroaches and other pests. They're doing you a favor, mate!", "probability": 0.3 }
     ],
-    
     "kangaroos": [
-      "Kangaroos are iconic Australian animals! They can hop up to 60 kilometers per hour and leap over 9 meters in a single bound!",
-      "Baby kangaroos, joeys, are born tiny, about the size of a jellybean! They crawl into their mother's pouch and continue developing there.",
-      "Kangaroos are brilliant swimmers! Not many people know that. They can use their tail as a rudder in the water!",
-      "A male kangaroo is called a boomer, a female is a flyer, and a baby is a joey. Isn't that beautiful?"
+      { "text": "Kangaroos are iconic Australian animals! They can hop up to 60 kilometers per hour and leap over 9 meters in a single bound!", "probability": 0.35 },
+      { "text": "Baby kangaroos, joeys, are born tiny, about the size of a jellybean! They crawl into their mother's pouch and continue developing there.", "probability": 0.35 },
+      { "text": "Kangaroos are brilliant swimmers! Not many people know that. They can use their tail as a rudder in the water!", "probability": 0.3 }
     ],
-    
     "koalas": [
-      "Koalas are Australia's little tree-huggers! They sleep up to 22 hours a day because eucalyptus leaves give them very little energy.",
-      "Despite what people think, koalas aren't bears! They're marsupials, related to kangaroos and wombats.",
-      "Koalas have fingerprints! They're so similar to human fingerprints that they could confuse crime scene investigators!",
-      "Each koala has its own unique voice and smell. Mums and joeys recognize each other by their calls!"
+      { "text": "Koalas are Australia's little tree-huggers! They sleep up to 22 hours a day because eucalyptus leaves give them very little energy.", "probability": 0.35 },
+      { "text": "Despite what people think, koalas aren't bears! They're marsupials, related to kangaroos and wombats.", "probability": 0.35 },
+      { "text": "Koalas have fingerprints! They're so similar to human fingerprints that they could confuse crime scene investigators!", "probability": 0.3 }
     ],
-    
     "sharks": [
-      "Sharks are ancient, beautiful predators! They've been around for over 400 million years, older than dinosaurs!",
-      "Great white sharks are incredible hunters, but they're not mindless killers! Most shark attacks are cases of mistaken identity.",
-      "Sharks are essential to ocean health! As apex predators, they keep fish populations balanced. We need to protect them!",
-      "A shark can detect a drop of blood in an Olympic-sized swimming pool! Their senses are absolutely incredible!"
+      { "text": "Sharks are ancient, beautiful predators! They've been around for over 400 million years, older than dinosaurs!", "probability": 0.35 },
+      { "text": "Great white sharks are incredible hunters, but they're not mindless killers! Most shark attacks are cases of mistaken identity.", "probability": 0.35 },
+      { "text": "Sharks are essential to ocean health! As apex predators, they keep fish populations balanced. We need to protect them!", "probability": 0.3 }
     ],
-    
     "tigers": [
-      "Tigers are magnificent big cats! Each tiger's stripes are unique, like human fingerprints.",
-      "The Sumatran tiger is critically endangered. We're working hard to protect these beautiful creatures from extinction!",
-      "Tigers are excellent swimmers! Unlike most cats, they actually enjoy water and will hunt in rivers and lakes.",
-      "A tiger's roar can be heard up to 3 kilometers away! It's one of the most powerful sounds in nature!"
+      { "text": "Tigers are magnificent big cats! Each tiger's stripes are unique, like human fingerprints.", "probability": 0.35 },
+      { "text": "The Sumatran tiger is critically endangered. We're working hard to protect these beautiful creatures from extinction!", "probability": 0.35 },
+      { "text": "Tigers are excellent swimmers! Unlike most cats, they actually enjoy water and will hunt in rivers and lakes.", "probability": 0.3 }
     ],
-    
     "elephants": [
-      "Elephants are incredibly intelligent and emotional animals! They mourn their dead and have incredible memories.",
-      "An elephant's trunk has over 40,000 muscles! They use it for everything from drinking water to greeting friends.",
-      "Elephants are keystone species! They shape their entire ecosystem by creating water holes and clearing vegetation.",
-      "Baby elephants suck their trunks like human babies suck their thumbs! It's adorable and helps them learn trunk control!"
+      { "text": "Elephants are incredibly intelligent and emotional animals! They mourn their dead and have incredible memories.", "probability": 0.35 },
+      { "text": "An elephant's trunk has over 40,000 muscles! They use it for everything from drinking water to greeting friends.", "probability": 0.35 },
+      { "text": "Elephants are keystone species! They shape their entire ecosystem by creating water holes and clearing vegetation.", "probability": 0.3 }
     ]
   },
-  
   "conservation": {
     "general": [
-      "Conservation is my life's mission, mate! Every species, no matter how small or dangerous, plays a vital role in our world. If we lose them, we lose a part of ourselves.",
-      "Through Wildlife Warriors, we're fighting to protect endangered species and their habitats all around the globe. Everyone can make a difference!",
-      "It's not just about animals in faraway places, conservation starts in your own backyard! Respect nature and the creatures around you.",
-      "We're working hard to protect crocodiles from illegal poaching and habitat destruction. These magnificent creatures need our help to survive!"
+      { "text": "Conservation is my life's mission, mate! Every species, no matter how small or dangerous, plays a vital role in our world. If we lose them, we lose a part of ourselves.", "probability": 0.35 },
+      { "text": "Through Wildlife Warriors, we're fighting to protect endangered species and their habitats all around the globe. Everyone can make a difference!", "probability": 0.35 },
+      { "text": "It's not just about animals in faraway places, conservation starts in your own backyard! Respect nature and the creatures around you.", "probability": 0.3 }
     ],
-    
     "endangered": [
-      "Too many species are on the brink of extinction! We're losing animals faster than ever before, and it's our responsibility to stop it!",
-      "The Tasmanian devil is endangered due to a facial tumor disease. At Australia Zoo, we're breeding healthy populations to save the species!",
-      "Habitat loss is the biggest threat to wildlife! When we destroy forests and wetlands, we're destroying homes for thousands of species.",
-      "Every animal deserves a chance to survive! Whether it's a tiger, a turtle, or a tiny frog, they all have a right to exist!"
+      { "text": "Too many species are on the brink of extinction! We're losing animals faster than ever before, and it's our responsibility to stop it!", "probability": 0.35 },
+      { "text": "The Tasmanian devil is endangered due to a facial tumor disease. At Australia Zoo, we're breeding healthy populations to save the species!", "probability": 0.35 },
+      { "text": "Habitat loss is the biggest threat to wildlife! When we destroy forests and wetlands, we're destroying homes for thousands of species.", "probability": 0.3 }
     ],
-    
     "climate": [
-      "Climate change is affecting wildlife everywhere! Rising temperatures are changing migration patterns and destroying habitats.",
-      "The Great Barrier Reef is suffering from coral bleaching! We need to protect our oceans before it's too late!",
-      "Animals are adapting, but they can only adapt so fast! We need to slow down climate change to give them a fighting chance!",
-      "Every action counts! Reducing waste, conserving energy, and supporting conservation helps protect wildlife from climate change!"
+      { "text": "Climate change is affecting wildlife everywhere! Rising temperatures are changing migration patterns and destroying habitats.", "probability": 0.35 },
+      { "text": "The Great Barrier Reef is suffering from coral bleaching! We need to protect our oceans before it's too late!", "probability": 0.35 },
+      { "text": "Animals are adapting, but they can only adapt so fast! We need to slow down climate change to give them a fighting chance!", "probability": 0.3 }
     ]
   },
-  
   "family": {
     "terri": [
-      "My wife Terri is an absolute legend! We met back in 1991 and it was love at first sight. She's my partner in everything!",
-      "Terri's from Oregon in the States, but she's taken to Australia like a true blue! She's just as passionate about conservation as I am!",
-      "Working with Terri is the best part of my job! We make a great team, whether we're catching crocs or caring for injured wildlife."
+      { "text": "My wife Terri is an absolute legend! We met back in 1991 and it was love at first sight. She's my partner in everything!", "probability": 0.5 },
+      { "text": "Terri's from Oregon in the States, but she's taken to Australia like a true blue! She's just as passionate about conservation as I am!", "probability": 0.5 }
     ],
-    
     "bindi": [
-      "My daughter Bindi Sue is absolutely beautiful! I named her after one of my favorite crocs. She was born in 1998 and she's got such a natural connection with animals!",
-      "Bindi's already a wildlife warrior at such a young age! She handles snakes, feeds crocs, and cares for injured animals. I couldn't be prouder!",
-      "Watching Bindi grow up surrounded by wildlife is incredible! She's learning to respect and love all creatures, just like her mum and I do!",
-      "Bindi's got her mum's compassion and my enthusiasm! She's going to do amazing things for wildlife conservation!"
+      { "text": "My daughter Bindi Sue is absolutely beautiful! I named her after one of my favorite crocs. She was born in 1998 and she's got such a natural connection with animals!", "probability": 0.35 },
+      { "text": "Bindi's already a wildlife warrior at such a young age! She handles snakes, feeds crocs, and cares for injured animals. I couldn't be prouder!", "probability": 0.35 },
+      { "text": "Watching Bindi grow up surrounded by wildlife is incredible! She's learning to respect and love all creatures, just like her mum and I do!", "probability": 0.3 }
     ],
-    
     "robert": [
-      "Little Robert Clarence! Named him after my dad. He was born in 2003 and he's already showing signs of being a great wildlife warrior!",
-      "Robert's fearless, just like his old man! He's already handling reptiles and learning about animal behavior. The future of conservation is bright!",
-      "Watching Robert interact with animals is beautiful! He's got a natural respect for wildlife that makes me so proud!",
-      "Robert's growing up in the best classroom in the world! Every day he's learning about incredible creatures and how to protect them!"
+      { "text": "Little Robert Clarence! Named him after my dad. He was born in 2003 and he's already showing signs of being a great wildlife warrior!", "probability": 0.35 },
+      { "text": "Robert's fearless, just like his old man! He's already handling reptiles and learning about animal behavior. The future of conservation is bright!", "probability": 0.35 },
+      { "text": "Watching Robert interact with animals is beautiful! He's got a natural respect for wildlife that makes me so proud!", "probability": 0.3 }
     ],
-    
     "kids": [
-      "Bindi and Robert are growing up to be amazing wildlife warriors! I'm so proud watching them learn about and care for animals.",
-      "My kids are the future of conservation! Bindi's got such a gentle touch with animals, and Robert's already fearless around crocs!",
-      "The best part of my day is teaching Bindi and Robert about wildlife! They're both so passionate and curious about every creature we meet.",
-      "Watching Bindi and Robert work together with animals brings me so much joy! They've got such different personalities but the same love for wildlife!",
-      "My kids are growing up in the best classroom in the world, surrounded by incredible animals and learning to respect nature every single day!"
+      { "text": "Bindi and Robert are growing up to be amazing wildlife warriors! I'm so proud watching them learn about and care for animals.", "probability": 0.4 },
+      { "text": "My kids are the future of conservation! Bindi's got such a gentle touch with animals, and Robert's already fearless around crocs!", "probability": 0.3 },
+      { "text": "The best part of my day is teaching Bindi and Robert about wildlife! They're both so passionate and curious about every creature we meet.", "probability": 0.3 }
     ],
-    
     "parents": [
-      "My mum and dad started it all with the Queensland Reptile and Fauna Park. Dad taught me everything about crocs, he's the best!",
-      "Dad took me out catching crocs when I was just nine years old! Those early experiences shaped everything I do today.",
-      "Mum was a wildlife rehabilitator. She taught me that every animal deserves care and compassion, no matter how small.",
-      "My parents gave me the greatest gift, a love and respect for all living things! I'm carrying on their legacy every day."
+      { "text": "My mum and dad started it all with the Queensland Reptile and Fauna Park. Dad taught me everything about crocs, he's the best!", "probability": 0.35 },
+      { "text": "Dad took me out catching crocs when I was just nine years old! Those early experiences shaped everything I do today.", "probability": 0.35 },
+      { "text": "Mum was a wildlife rehabilitator. She taught me that every animal deserves care and compassion, no matter how small.", "probability": 0.3 }
     ]
   },
-  
   "australia_zoo": [
-    "Australia Zoo is not just a zoo, it's a conservation center! We've got over 1,200 animals here, and every one of them gets the best care possible.",
-    "What started as my parents' small reptile park has grown into one of the biggest wildlife conservation facilities in the world! Crikey!",
-    "At Australia Zoo, we're not just showing people animals, we're teaching them why conservation matters. Every visitor becomes a wildlife warrior!",
-    "The zoo is home to some of the most incredible animals on Earth! From crocs to tigers to Tasmanian devils, we're working to protect them all!",
-    "The Crocoseum at Australia Zoo can hold 5,000 people! We do live shows where people can see crocs, birds, and snakes up close!",
-    "Every dollar spent at Australia Zoo goes toward conservation! We're rescuing, rehabilitating, and releasing wildlife every single day!"
+    { "text": "Australia Zoo is not just a zoo, it's a conservation center! We've got over 1,200 animals here, and every one of them gets the best care possible.", "probability": 0.35 },
+    { "text": "What started as my parents' small reptile park has grown into one of the biggest wildlife conservation facilities in the world! Crikey!", "probability": 0.35 },
+    { "text": "The Crocoseum at Australia Zoo can hold 5,000 people! We do live shows where people can see crocs, birds, and snakes up close!", "probability": 0.3 }
   ],
-  
   "television": [
-    "The Crocodile Hunter has been such an incredible journey! We've traveled the world showing people how amazing wildlife really is!",
-    "Filming in remote locations is challenging, but it's worth it! We want to show people animals they'd never normally see!",
-    "The goal of our shows is education! If people understand animals, they'll want to protect them!",
-    "We've filmed in some dangerous situations, but it's important to show respect for these animals, not fear!"
+    { "text": "The Crocodile Hunter has been such an incredible journey! We've traveled the world showing people how amazing wildlife really is!", "probability": 0.35 },
+    { "text": "Filming in remote locations is challenging, but it's worth it! We want to show people animals they'd never normally see!", "probability": 0.35 },
+    { "text": "The goal of our shows is education! If people understand animals, they'll want to protect them!", "probability": 0.3 }
   ],
-  
   "australia": [
-    "Australia is the most incredible place on Earth! We've got unique wildlife you won't find anywhere else!",
-    "The Australian outback is harsh but beautiful! It's home to some of the toughest animals on the planet!",
-    "The Great Barrier Reef is the largest living structure on Earth! It's visible from space and home to thousands of species!",
-    "From the rainforests to the deserts, Australia has every ecosystem you can imagine! Each one is full of amazing creatures!"
+    { "text": "Australia is the most incredible place on Earth! We've got unique wildlife you won't find anywhere else!", "probability": 0.35 },
+    { "text": "The Australian outback is harsh but beautiful! It's home to some of the toughest animals on the planet!", "probability": 0.35 },
+    { "text": "The Great Barrier Reef is the largest living structure on Earth! It's visible from space and home to thousands of species!", "probability": 0.3 }
   ],
-  
   "safety": [
-    "Always respect wildlife! Never approach wild animals, especially predators like crocs or snakes!",
-    "If you see a snake, back away slowly! Don't try to catch it or kill it. Just give it space and it'll leave you alone!",
-    "Swim only in designated areas! Crocodiles can be anywhere in northern Australia, and they're ambush predators!",
-    "Education is the best protection! Learn about the animals in your area and how to stay safe around them!"
+    { "text": "Always respect wildlife! Never approach wild animals, especially predators like crocs or snakes!", "probability": 0.35 },
+    { "text": "If you see a snake, back away slowly! Don't try to catch it or kill it. Just give it space and it'll leave you alone!", "probability": 0.35 },
+    { "text": "Swim only in designated areas! Crocodiles can be anywhere in northern Australia, and they're ambush predators!", "probability": 0.3 }
   ],
-  
   "facts": [
-    "Did you know? Saltwater crocodiles can hold their breath for over an hour!",
-    "Snake fact: The inland taipan's venom is 50 times more toxic than a king cobra's!",
-    "Fun fact: Koalas sleep up to 22 hours a day! They're saving energy because eucalyptus leaves are low in nutrients.",
-    "Amazing fact: Kangaroos can't walk backwards! They can only hop forward.",
-    "Wildlife fact: Tasmanian devils have the strongest bite relative to body size of any living mammal!",
-    "Crikey fact: A crocodile's bite force is 3,700 pounds per square inch! That's stronger than a T-Rex!",
-    "Did you know? Wombat poop is cube-shaped! They use it to mark their territory!",
-    "Amazing fact: Platypuses are one of only five species of mammals that lay eggs!",
-    "Ocean fact: The box jellyfish is one of the most venomous creatures in the world!"
+    { "text": "Did you know? Saltwater crocodiles can hold their breath for over an hour!", "probability": 0.15 },
+    { "text": "Snake fact: The inland taipan's venom is 50 times more toxic than a king cobra's!", "probability": 0.15 },
+    { "text": "Fun fact: Koalas sleep up to 22 hours a day! They're saving energy because eucalyptus leaves are low in nutrients.", "probability": 0.1 },
+    { "text": "Amazing fact: Kangaroos can't walk backwards! They can only hop forward.", "probability": 0.1 },
+    { "text": "Wildlife fact: Tasmanian devils have the strongest bite relative to body size of any living mammal!", "probability": 0.1 },
+    { "text": "Crikey fact: A crocodile's bite force is 3,700 pounds per square inch! That's stronger than a T-Rex!", "probability": 0.1 },
+    { "text": "Did you know? Wombat poop is cube-shaped! They use it to mark their territory!", "probability": 0.1 },
+    { "text": "Amazing fact: Platypuses are one of only five species of mammals that lay eggs!", "probability": 0.1 },
+    { "text": "Ocean fact: The box jellyfish is one of the most venomous creatures in the world!", "probability": 0.1 }
   ],
-  
   "passion": [
-    "Wildlife is my passion, mate! Every animal, from the smallest insect to the largest whale, is incredible!",
-    "I've loved animals since I was a kid! There's nothing more exciting than learning about a new species!",
-    "My passion is education! If people understand animals, they'll want to protect them. That's what it's all about!",
-    "Why do I love wildlife? Because every creature has a story, a purpose, and a right to exist! We need to protect them all!",
-    "Conservation isn't just a job, it's my life's mission! I want future generations to experience the beauty of our natural world!",
-    "The excitement I feel around animals never fades! Every encounter is special, whether it's my thousandth croc or my first!"
+    { "text": "Wildlife is my passion, mate! Every animal, from the smallest insect to the largest whale, is incredible!", "probability": 0.35 },
+    { "text": "I've loved animals since I was a kid! There's nothing more exciting than learning about a new species!", "probability": 0.35 },
+    { "text": "My passion is education! If people understand animals, they'll want to protect them. That's what it's all about!", "probability": 0.3 }
   ],
-  
   "danger": [
-    "People think I'm crazy working with dangerous animals, but it's all about respect! If you understand them, you can work safely with them.",
-    "Dangerous animals aren't out to get you, mate! They're just defending themselves or hunting for food. Respect their space!",
-    "I've been bitten and scratched plenty of times, but I never blame the animal! It's my job to understand their behavior and stay safe.",
-    "Fear is natural, but don't let it turn into hatred! Even the most dangerous animals deserve our respect and protection.",
-    "Working with venomous snakes and massive crocs is risky, but with proper knowledge and technique, you can minimize danger!",
-    "The most dangerous thing about wildlife is ignorance! Education and respect are your best protection!"
+    { "text": "People think I'm crazy working with dangerous animals, but it's all about respect! If you understand them, you can work safely with them.", "probability": 0.35 },
+    { "text": "Dangerous animals aren't out to get you, mate! They're just defending themselves or hunting for food. Respect their space!", "probability": 0.35 },
+    { "text": "Fear is natural, but don't let it turn into hatred! Even the most dangerous animals deserve our respect and protection.", "probability": 0.3 }
   ],
-  
-  "default": [
-    "That's a ripper question, mate! While I might not have all the answers, I'm passionate about wildlife and conservation. What else would you like to know?",
-    "Crikey! I'm not sure I have the answer to that mate. Why don't we chat about some wildlife instead?",
-    "Good on ya for asking! While that's not my area of expertise, I'm always happy to talk about animals and conservation!",
-    "Beauty! That's an interesting topic. Is there anything specific about wildlife or conservation you'd like to know about?",
-    "I'm more of a wildlife expert than anything else! Want to talk about crocs, snakes, or other amazing animals?",
-    "That's outside my wheelhouse, mate! But I can tell you all about incredible wildlife! What animal interests you?"
-  ]
+  "dialogueTrees": {
+    "crocodiles": {
+      "habitat": [
+        { "text": "Saltwater crocs live in northern Australia, in rivers, wetlands, and coastal areas. They can handle both fresh and saltwater - that's why they're called 'salties'!", "probability": 0.6 },
+        { "text": "These beauties are found across northern Australia, from Broome to Brisbane. They love mangroves and river estuaries!", "probability": 0.4 }
+      ],
+      "hunting": [
+        { "text": "Crocs are ambush predators! They can stay still for hours, then explode out of the water at 30 km/h. The death roll is their signature move!", "probability": 0.7 },
+        { "text": "They hunt everything from fish to water buffalo! A big salty can take down prey much larger than itself.", "probability": 0.3 }
+      ],
+      "catching": [
+        { "text": "Catching crocs is all about respect and technique! You approach slowly, use a spotlight at night, and secure the jaws first. Safety is paramount!", "probability": 0.6 },
+        { "text": "I've been catching crocs since I was nine! The key is understanding their behavior and never underestimating them. Every croc is different!", "probability": 0.4 }
+      ],
+      "breeding": [
+        { "text": "At Australia Zoo, we have successful breeding programs! Female crocs lay 40-60 eggs and guard them fiercely. The temperature determines if they're male or female!", "probability": 0.5 },
+        { "text": "Breeding programs are crucial for conservation! We're ensuring healthy genetic diversity and educating people about these magnificent creatures.", "probability": 0.5 }
+      ]
+    },
+    "snakes": {
+      "venomous": [
+        { "text": "Australia has the top 10 most venomous snakes in the world! The inland taipan, eastern brown, and coastal taipan are incredibly potent, but they're also shy.", "probability": 0.6 },
+        { "text": "Venomous snakes use their venom primarily for hunting, not defense! If you give them space and respect, they'll leave you alone.", "probability": 0.4 }
+      ],
+      "pythons": [
+        { "text": "Pythons are constrictors, not venomous! They squeeze their prey and are incredibly strong. The scrub python can grow over 8 meters long!", "probability": 0.5 },
+        { "text": "I love working with pythons! They're gentle giants when handled properly. Carpet pythons are beautiful and help control rodent populations.", "probability": 0.5 }
+      ]
+    },
+    "family": {
+      "terri": [
+        { "text": "Terri walked into Australia Zoo in 1991 and it was love at first sight! She's my soulmate and my partner in conservation.", "probability": 0.5 },
+        { "text": "My wife is incredible! She's taken to Australia and its wildlife with such passion. We're a team in everything we do!", "probability": 0.5 }
+      ],
+      "bindi": [
+        { "text": "Bindi's named after my favorite crocodile! She's got such a natural gift with animals. At her age, she's already handling venomous snakes!", "probability": 0.5 },
+        { "text": "My daughter is going to change the world! She's got her mum's compassion and she loves every creature she meets.", "probability": 0.5 }
+      ],
+      "robert": [
+        { "text": "Robert's named after my dad, Bob. He's fearless! Already he's showing the same passion for wildlife that runs in our family.", "probability": 0.5 },
+        { "text": "Little Robert is growing up surrounded by incredible animals! He's learning respect and love for all creatures from day one.", "probability": 0.5 }
+      ]
+    },
+    "conservation": {
+      "endangered": [
+        { "text": "Too many species are on the brink! Tasmanian devils, orangutans, tigers - we're losing them faster than ever. But there's hope if we act now!", "probability": 0.6 },
+        { "text": "Every endangered species deserves a fighting chance! At Australia Zoo, we're breeding Tasmanian devils to save them from extinction.", "probability": 0.4 }
+      ],
+      "climate": [
+        { "text": "Climate change is the biggest threat to wildlife! Rising temperatures, habitat loss, coral bleaching - it's all connected and we need to act!", "probability": 0.5 },
+        { "text": "The Great Barrier Reef is suffering from warming oceans! We need to protect our natural wonders before it's too late.", "probability": 0.5 }
+      ]
+    }
+  }
 }
