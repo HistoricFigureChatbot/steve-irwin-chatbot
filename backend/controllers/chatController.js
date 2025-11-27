@@ -33,7 +33,7 @@ export const sendMessage = async (req, res) => {
     console.error('Chat Error:', error);
     return res.status(500).json({ 
       success: false,
-      error: 'Crikey! Something went wrong, mate!'
+      error: 'Crikey! I\'m just out wrestling a crocodile at the moment mate. I\'ll be back soon!'
     });
   }
 };
