@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import "./ChatPage.css";
 
-const API_URL = "http://localhost:3001/api";
+const API_URL = "http://localhost:5000/api";
 
 export default function ChatPage() {
   const location = useLocation();

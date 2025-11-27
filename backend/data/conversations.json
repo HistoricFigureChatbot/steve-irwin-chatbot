@@ -89,7 +89,7 @@
       "responseKey": "safety"
     },
     "facts": {
-      "keywords": ["fact", "tell me", "did you know"],
+      "keywords": ["fact", "tell me a fact", "did you know"],
       "responseKey": "facts"
     },
     "passion": {
