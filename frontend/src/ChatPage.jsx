@@ -50,7 +50,7 @@ export default function ChatPage() {
       }
     } catch (err) {
       console.error('Error calling API:', err);
-      setError('Crikey! Having trouble connecting to the server, mate!');
+      setError("Crikey! I'm just out wrestling a crocodile at the moment mate. I'll be back soon!");
       return "G'day! I'm having a bit of trouble right now, but I'll be back soon!";
     }
   };

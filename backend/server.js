@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import 'dotenv/config';
 import chatRoutes from './routes/chatRoutes.js';
 
 // Initialize Express app

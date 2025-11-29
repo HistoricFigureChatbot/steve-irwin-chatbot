@@ -1,4 +1,5 @@
 import fs from 'fs/promises';
+import { getLLMResponse } from './llmService.js';
 
 // Simple in-memory storage for responses and conversations
 let responses = {};
@@ -40,9 +41,10 @@ export async function loadConversations() {
  * Uses conversations.json for keyword matching
  */
 export async function findTopic(message) {
-  if (!message) return 'default';
+  if (!message) return ['default'];
   
   const messageLower = message.toLowerCase();
+  const matchedTopics = [];
   
   // Loop through all topics in conversations.json
   for (const [topicName, topicData] of Object.entries(conversations)) {
@@ -53,14 +55,19 @@ export async function findTopic(message) {
     for (const keyword of topicData.keywords) {
       if (messageLower.includes(keyword.toLowerCase())) {
         console.log(`Matched topic: ${topicName} (keyword: "${keyword}")`);
-        return topicData.responseKey;
+        matchedTopics.push(topicData.responseKey);
+        break; // Only count each topic once
       }
     }
   }
   
   // No match found, return default
-  console.log('No topic match found, using default');
-  return 'default';
+  if (matchedTopics.length === 0) {
+    console.log('No topic match found, using default');
+    return ['default'];
+  }
+  
+  return matchedTopics;
 }
 
 /**
@@ -83,12 +90,26 @@ function getResponsesByPath(path) {
 
 /**
  * Get a response for a topic using probability-based selection
+ * Falls back to LLM if no scripted response exists OR if topic is 'default'
  */
-export async function getResponse(topic) {
+export async function getResponse(topic, originalMessage = '') {
+  // If topic is 'default', use LLM for more dynamic responses
+  if (topic === 'default') {
+    console.log('Default topic - using LLM for dynamic response');
+    return {
+      text: await getLLMResponse(originalMessage),
+      isLLM: true
+    };
+  }
+  
   const topicResponses = getResponsesByPath(topic);
   
   if (!Array.isArray(topicResponses) || topicResponses.length === 0) {
-    return "Crikey! I'm not sure about that one, mate!";
+    console.log('No scripted response found, using LLM fallback');
+    return {
+      text: await getLLMResponse(originalMessage),
+      isLLM: true
+    };
   }
   
   // Select based on probability
@@ -98,26 +119,41 @@ export async function getResponse(topic) {
   for (const response of topicResponses) {
     cumulative += (response.probability || 0);
     if (random <= cumulative) {
-      return response.text;
+      return {
+        text: response.text,
+        isLLM: false
+      };
     }
   }
   
   // Fallback to first response
-  return topicResponses[0].text;
+  return {
+    text: topicResponses[0].text,
+    isLLM: false
+  };
 }
 
 /**
  * Main function to process a message and get response
  */
 export async function processMessage(message) {
-  const topic = await findTopic(message);
-  const response = await getResponse(topic);
+  const topics = await findTopic(message);
+  const responses = [];
   
-  console.log(`Topic: ${topic} | Response: ${response.substring(0, 50)}...`);
+  // Get response for each matched topic
+  for (const topic of topics) {
+    const responseData = await getResponse(topic, message);
+    responses.push(responseData.text);
+    console.log(`Topic: ${topic} | LLM: ${responseData.isLLM} | Response: ${responseData.text.substring(0, 50)}...`);
+  }
+  
+  // Combine all responses with double line break
+  const combinedResponse = responses.join('\n\n');
   
   return {
-    response,
-    topic
+    response: combinedResponse,
+    topics: topics,
+    isLLM: topics.includes('default')
   };
 }
 
