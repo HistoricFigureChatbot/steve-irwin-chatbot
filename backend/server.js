@@ -33,11 +33,10 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start Server
+// Start Server (only for local development)
 const PORT = process.env.PORT || 3001;
 
-// Only listen if not running in Vercel (Vercel handles the port binding)
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.VERCEL !== '1') {
   app.listen(PORT, () => {
     console.log('='.repeat(50));
     console.log(` Steve Irwin Chatbot API Server`);
@@ -48,5 +47,6 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
+// Export for Vercel serverless
 export default app;
 
