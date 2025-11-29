@@ -34,12 +34,18 @@ app.use((err, req, res, next) => {
 
 // Start Server
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log('='.repeat(50));
-  console.log(` Steve Irwin Chatbot API Server`);
-  console.log(` Running on: http://localhost:${PORT}`);
-  console.log(` API Endpoint: http://localhost:${PORT}/api`);
-  console.log(`Status: Ready to chat!`);
-  console.log('='.repeat(50));
-});
+
+// Only listen if not running in Vercel (Vercel handles the port binding)
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log('='.repeat(50));
+    console.log(` Steve Irwin Chatbot API Server`);
+    console.log(` Running on: http://localhost:${PORT}`);
+    console.log(` API Endpoint: http://localhost:${PORT}/api`);
+    console.log(`Status: Ready to chat!`);
+    console.log('='.repeat(50));
+  });
+}
+
+export default app;
 
