@@ -1,4 +1,14 @@
 {
+  "questionPatterns": {
+    "howQuestions": ["how tall", "how big", "how heavy", "how fast", "how long", "how much", "how old", "how many"],
+    "whatQuestions": ["what color", "what colour", "what size", "what weight", "what speed", "what is", "what are"],
+    "whenQuestions": ["when do", "when did", "when does", "when was", "when were", "when is"],
+    "whereQuestions": ["where do", "where did", "where does", "where is", "where are", "where can"],
+    "whyQuestions": ["why do", "why did", "why does", "why is", "why are", "why can"],
+    "canQuestions": ["can they", "can it", "can you", "can a", "can an"],
+    "doQuestions": ["do they", "does it", "did they", "does a", "do you"]
+  },
+
   "topics": {
     "greetings": {
       "keywords": ["hello", "hi", "hey", "g'day", "howdy", "greetings"],
@@ -108,43 +118,70 @@
 
   "dialogueTrees": {
     "crocodiles": {
+      "start": {
+        "keywords": ["more about crocodiles", "tell me more croc", "learn about crocodiles", "crocodile details"],
+        "responseKey": "dialogueTrees.crocodiles.start"
+      },
       "habitat": {
+        "keywords": ["habitat", "where do they live", "where are they found", "location"],
         "responseKey": "dialogueTrees.crocodiles.habitat"
       },
       "hunting": {
+        "keywords": ["hunting", "hunt", "how do they hunt", "death roll", "ambush", "prey"],
         "responseKey": "dialogueTrees.crocodiles.hunting"
       },
       "catching": {
+        "keywords": ["catching", "catch", "capture", "how to catch", "how do you catch"],
         "responseKey": "dialogueTrees.crocodiles.catching"
       },
       "breeding": {
+        "keywords": ["breeding", "breed", "eggs", "reproduction", "babies", "hatchlings"],
         "responseKey": "dialogueTrees.crocodiles.breeding"
       }
     },
     "snakes": {
+      "start": {
+        "keywords": ["more about snakes", "tell me more snake", "learn about snakes", "snake details"],
+        "responseKey": "dialogueTrees.snakes.start"
+      },
       "venomous": {
+        "keywords": ["venomous", "venom", "poisonous", "taipan", "brown snake", "deadly"],
         "responseKey": "dialogueTrees.snakes.venomous"
       },
       "pythons": {
+        "keywords": ["python", "constrictor", "squeeze", "non venomous"],
         "responseKey": "dialogueTrees.snakes.pythons"
       }
     },
     "family": {
+      "start": {
+        "keywords": ["more about family", "tell me about your family", "family details"],
+        "responseKey": "dialogueTrees.family.start"
+      },
       "terri": {
+        "keywords": ["terri", "wife", "your wife", "spouse"],
         "responseKey": "dialogueTrees.family.terri"
       },
       "bindi": {
+        "keywords": ["bindi", "daughter", "your daughter"],
         "responseKey": "dialogueTrees.family.bindi"
       },
       "robert": {
+        "keywords": ["robert", "son", "your son", "little robert"],
         "responseKey": "dialogueTrees.family.robert"
       }
     },
     "conservation": {
+      "start": {
+        "keywords": ["more about conservation", "tell me about conservation", "conservation work"],
+        "responseKey": "dialogueTrees.conservation.start"
+      },
       "endangered": {
+        "keywords": ["endangered", "extinction", "threatened", "endangered species", "species at risk"],
         "responseKey": "dialogueTrees.conservation.endangered"
       },
       "climate": {
+        "keywords": ["climate", "climate change", "global warming", "warming", "temperature"],
         "responseKey": "dialogueTrees.conservation.climate"
       }
     }

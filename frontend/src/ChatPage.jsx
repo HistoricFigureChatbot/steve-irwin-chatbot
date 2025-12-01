@@ -44,14 +44,22 @@ export default function ChatPage() {
       const data = await response.json();
       
       if (data.success && data.data?.response) {
-        return data.data.response;
+        return {
+          text: data.data.response,
+          followUp: data.data.followUp,
+          inDialogueTree: data.data.inDialogueTree
+        };
       } else {
         throw new Error('Invalid response from server');
       }
     } catch (err) {
       console.error('Error calling API:', err);
       setError("Crikey! I'm just out wrestling a crocodile at the moment mate. I'll be back soon!");
-      return "G'day! I'm having a bit of trouble right now, but I'll be back soon!";
+      return {
+        text: "G'day! I'm having a bit of trouble right now, but I'll be back soon!",
+        followUp: null,
+        inDialogueTree: false
+      };
     }
   };
 
@@ -64,10 +72,10 @@ export default function ChatPage() {
       setIsTyping(true);
       
       // Get response from API
-      sendMessageToAPI(initialMessage).then((botResponse) => {
+      sendMessageToAPI(initialMessage).then((response) => {
         setMessages([
           { type: "user", text: initialMessage },
-          { type: "bot", text: botResponse }
+          { type: "bot", text: response.text, followUp: response.followUp }
         ]);
         setIsTyping(false);
       });
@@ -87,11 +95,11 @@ export default function ChatPage() {
       setIsTyping(true);
       
       // Get response from API
-      const botResponse = await sendMessageToAPI(userMessage);
+      const response = await sendMessageToAPI(userMessage);
       
       setMessages(prev => [
         ...prev,
-        { type: "bot", text: botResponse }
+        { type: "bot", text: response.text, followUp: response.followUp }
       ]);
       setIsTyping(false);
     }
@@ -113,6 +121,11 @@ export default function ChatPage() {
                   <div className="message-bubble">
                     {msg.text}
                   </div>
+                  {msg.followUp && msg.type === "bot" && (
+                    <div className="follow-up-hint">
+                      💡 {msg.followUp}
+                    </div>
+                  )}
                 </div>
               ))}
               

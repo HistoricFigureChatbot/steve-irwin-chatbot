@@ -17,14 +17,17 @@ export const sendMessage = async (req, res) => {
     }
 
     // Process message and get response
-    const result = await processMessage(message);
+    const result = await processMessage(message, userId);
 
     // Send response
     return res.status(200).json({
       success: true,
       data: {
         response: result.response,
-        topic: result.topic,
+        topics: result.topics,
+        isLLM: result.isLLM,
+        inDialogueTree: result.inDialogueTree,
+        followUp: result.followUp || null,
         userId
       }
     });
