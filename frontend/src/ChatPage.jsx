@@ -117,9 +117,11 @@ export default function ChatPage() {
             )}
             <div className="messages-container">
               {messages.map((msg, index) => (
-                <div key={index} className={`message ${msg.type}-message`}>
-                  <div className="message-bubble">
-                    {msg.text}
+                <div key={index}>
+                  <div className={`message ${msg.type}-message`}>
+                    <div className="message-bubble">
+                      {msg.text}
+                    </div>
                   </div>
                   {msg.followUp && msg.type === "bot" && (
                     <div className="follow-up-hint">
@@ -163,3 +165,5 @@ export default function ChatPage() {
     </div>
   );
 }
+
+

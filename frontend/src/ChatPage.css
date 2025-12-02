@@ -133,6 +133,8 @@ html[data-theme="dark"] .chat-page-container::after {
 }
 
 .follow-up-hint {
+  display: inline-block;
+  max-width: 70%;
   margin-top: 0.5rem;
   padding: 0.75rem 1rem;
   background-color: rgba(255, 193, 7, 0.15);
