@@ -77,7 +77,16 @@ function isSpecificQuestion(message) {
 }
 
 /**
- * Detect if message is a greeting
+ * Check if a keyword matches as a whole word (not part of another word)
+ */
+function matchesWholeWord(text, keyword) {
+  // Create regex with word boundaries
+  const pattern = new RegExp(`\\b${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+  return pattern.test(text);
+}
+
+/**
+ * Detect if message is a greeting using whole-word matching
  */
 function isGreeting(message) {
   const messageLower = message.toLowerCase();
@@ -86,7 +95,9 @@ function isGreeting(message) {
   if (!greetingTopic) return false;
   
   for (const keyword of greetingTopic.keywords) {
-    if (messageLower.includes(keyword.toLowerCase())) {
+    // Use whole-word matching to avoid false positives like "which" matching "hi"
+    if (matchesWholeWord(messageLower, keyword)) {
+      console.log(`👋 Detected greeting: "${keyword}"`);
       return true;
     }
   }
@@ -95,7 +106,7 @@ function isGreeting(message) {
 }
 
 /**
- * Detect if message is a farewell
+ * Detect if message is a farewell using whole-word matching
  */
 function isFarewell(message) {
   const messageLower = message.toLowerCase();
@@ -104,7 +115,9 @@ function isFarewell(message) {
   if (!farewellTopic) return false;
   
   for (const keyword of farewellTopic.keywords) {
-    if (messageLower.includes(keyword.toLowerCase())) {
+    // Use whole-word matching
+    if (matchesWholeWord(messageLower, keyword)) {
+      console.log(`👋 Detected farewell: "${keyword}"`);
       return true;
     }
   }
@@ -124,13 +137,29 @@ function findDialogueTreeNode(message, currentTree = null) {
       if (!nodeData.keywords) continue;
       
       for (const keyword of nodeData.keywords) {
-        if (messageLower.includes(keyword.toLowerCase())) {
-          console.log(`🌳 Found dialogue tree node: ${currentTree}.${nodeName}`);
-          return {
-            tree: currentTree,
-            node: nodeName,
-            responseKey: nodeData.responseKey
-          };
+        // For dialogue tree navigation, use whole-word matching for single words
+        // but allow partial matching for multi-word phrases
+        const keywordLower = keyword.toLowerCase();
+        if (keywordLower.includes(' ')) {
+          // Multi-word phrase - use contains
+          if (messageLower.includes(keywordLower)) {
+            console.log(`🌳 Found dialogue tree node: ${currentTree}.${nodeName}`);
+            return {
+              tree: currentTree,
+              node: nodeName,
+              responseKey: nodeData.responseKey
+            };
+          }
+        } else {
+          // Single word - use whole-word matching
+          if (matchesWholeWord(messageLower, keywordLower)) {
+            console.log(`🌳 Found dialogue tree node: ${currentTree}.${nodeName}`);
+            return {
+              tree: currentTree,
+              node: nodeName,
+              responseKey: nodeData.responseKey
+            };
+          }
         }
       }
     }
@@ -142,13 +171,27 @@ function findDialogueTreeNode(message, currentTree = null) {
       if (!nodeData.keywords) continue;
       
       for (const keyword of nodeData.keywords) {
-        if (messageLower.includes(keyword.toLowerCase())) {
-          console.log(`🌳 Found dialogue tree: ${treeName}.${nodeName}`);
-          return {
-            tree: treeName,
-            node: nodeName,
-            responseKey: nodeData.responseKey
-          };
+        const keywordLower = keyword.toLowerCase();
+        if (keywordLower.includes(' ')) {
+          // Multi-word phrase
+          if (messageLower.includes(keywordLower)) {
+            console.log(`🌳 Found dialogue tree: ${treeName}.${nodeName}`);
+            return {
+              tree: treeName,
+              node: nodeName,
+              responseKey: nodeData.responseKey
+            };
+          }
+        } else {
+          // Single word
+          if (matchesWholeWord(messageLower, keywordLower)) {
+            console.log(`🌳 Found dialogue tree: ${treeName}.${nodeName}`);
+            return {
+              tree: treeName,
+              node: nodeName,
+              responseKey: nodeData.responseKey
+            };
+          }
         }
       }
     }
