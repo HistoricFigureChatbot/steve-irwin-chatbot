@@ -77,6 +77,17 @@ html[data-theme="dark"] .chat-page-container::after {
   max-height: 80vh;
 }
 
+.error-banner {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-family: 'Akshar', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
 .messages-container {
   flex: 1;
   overflow-y: auto;
@@ -119,6 +130,36 @@ html[data-theme="dark"] .chat-page-container::after {
   background-color: var(--bot-bubble-bg);
   color: var(--bot-bubble-text);
   border-bottom-left-radius: 4px;
+}
+
+.follow-up-hint {
+  display: inline-block;
+  max-width: 70%;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(255, 193, 7, 0.15);
+  border-left: 3px solid #ffc107;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  font-style: italic;
+  animation: fadeInSlide 0.4s ease-out;
+}
+
+html[data-theme="dark"] .follow-up-hint {
+  background-color: rgba(255, 193, 7, 0.1);
+  border-left-color: #ffb300;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .chat-input-form {
@@ -173,6 +214,17 @@ html[data-theme="dark"] .chat-page-container::after {
 
 .send-button:active {
   transform: translateY(0);
+}
+
+.send-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.chat-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .typing-indicator {
