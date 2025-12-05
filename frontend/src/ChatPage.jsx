@@ -107,6 +107,18 @@ export default function ChatPage() {
 
   return (
     <div className="chat-page-container">
+      {/* Decorative images positioned outside chat container */}
+      <img 
+        src="/steve-standing-with-koala.png" 
+        alt="Steve Irwin with koala" 
+        className="steve-character-left"
+      />
+      <img 
+        src="/cute-croc.png" 
+        alt="Cute crocodile" 
+        className="croc-character-right"
+      />
+      
       <div className="chat-content">
         <div className="messages-wrapper">
           <div className="chat-container-box">
