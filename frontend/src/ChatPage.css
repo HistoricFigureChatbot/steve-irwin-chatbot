@@ -63,21 +63,94 @@ html[data-theme="dark"] .chat-page-container::after {
   transform: scale(1.05);
 }
 
-.croc-character-right {
+.croc-container {
   position: fixed;
   right: 1%;
   bottom: 0;
+  z-index: 10;
+}
+
+.croc-character-right {
   width: 280px;
   height: auto;
-  z-index: 10;
-  pointer-events: none;
   opacity: 0.95;
   filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, filter 0.2s ease;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .croc-character-right:hover {
   transform: scale(1.05);
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.4));
+}
+
+.croc-character-right:active {
+  transform: scale(0.98);
+}
+
+.croc-character-right.snapping {
+  animation: snapAnimation 0.5s ease;
+}
+
+@keyframes snapAnimation {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.1) rotate(-5deg); }
+  50% { transform: scale(1.15) rotate(5deg); }
+  75% { transform: scale(1.1) rotate(-3deg); }
+}
+
+.croc-speech-bubble {
+  position: absolute;
+  top: 20%;
+  right: 100%;
+  margin-right: 1rem;
+  background-color: white;
+  color: #333;
+  padding: 0.75rem 1.25rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  animation: bubblePop 0.3s ease-out;
+  font-family: 'Akshar', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.croc-speech-bubble::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid white;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+html[data-theme="dark"] .croc-speech-bubble {
+  background-color: #2a2a2a;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .croc-speech-bubble::after {
+  border-left-color: #2a2a2a;
+}
+
+@keyframes bubblePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .chat-content {
