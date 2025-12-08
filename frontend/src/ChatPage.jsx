@@ -17,7 +17,95 @@ export default function ChatPage() {
   const defaultGreeting = {
     type: "bot",
     text: "G'day mate! I'm Steve Irwin, and I'm absolutely stoked to chat with you about wildlife!",
-    followUp: "💡 Try asking me about: crocodiles, snakes, family, or conservation!"
+    followUp: "💡 Try asking me about: crocodiles, snakes, family, or conservation!",
+    timestamp: new Date().toISOString()
+  };
+
+  // Extract clickable topics from follow-up hint
+  const extractTopics = (followUpText) => {
+    if (!followUpText) return [];
+    
+    // Convert to lowercase for easier matching
+    const lowerText = followUpText.toLowerCase();
+    
+    // Find "about:" or "about " in the text
+    let startIndex = lowerText.indexOf('about:');
+    if (startIndex === -1) {
+      startIndex = lowerText.indexOf('about ');
+    }
+    
+    if (startIndex === -1) return [];
+    
+    // Move past "about:" or "about "
+    startIndex = startIndex + 6; // Skip "about:"
+    
+    // Find the end (either ! or . or end of string)
+    let endIndex = followUpText.indexOf('!', startIndex);
+    if (endIndex === -1) {
+      endIndex = followUpText.indexOf('.', startIndex);
+    }
+    if (endIndex === -1) {
+      endIndex = followUpText.length;
+    }
+    
+    // Extract the substring
+    const topicsString = followUpText.substring(startIndex, endIndex).trim();
+    
+    // Split by comma and "or"
+    const topics = [];
+    let currentTopic = '';
+    let i = 0;
+    
+    while (i < topicsString.length) {
+      const char = topicsString[i];
+      
+      // Check if we hit a comma
+      if (char === ',') {
+        if (currentTopic.trim().length > 0) {
+          topics.push(currentTopic.trim());
+        }
+        currentTopic = '';
+        i++;
+        continue;
+      }
+      
+      // Check if we hit " or "
+      if (i + 4 <= topicsString.length && 
+          topicsString.substring(i, i + 4) === ' or ') {
+        if (currentTopic.trim().length > 0) {
+          topics.push(currentTopic.trim());
+        }
+        currentTopic = '';
+        i += 4;
+        continue;
+      }
+      
+      currentTopic += char;
+      i++;
+    }
+    
+    // Add the last topic
+    if (currentTopic.trim().length > 0) {
+      topics.push(currentTopic.trim());
+    }
+    
+    return topics;
+  };
+
+  // Handle topic chip click
+  const handleTopicClick = (topic) => {
+    setInputValue(topic);
+  };
+
+  // Format timestamp for display
+  const formatTime = (timestamp) => {
+    if (!timestamp) return '';
+    const date = new Date(timestamp);
+    return date.toLocaleTimeString('en-US', { 
+      hour: 'numeric', 
+      minute: '2-digit',
+      hour12: true 
+    });
   };
 
   // Auto-scroll to bottom when messages change
@@ -54,7 +142,8 @@ export default function ChatPage() {
         return {
           text: data.data.response,
           followUp: data.data.followUp,
-          inDialogueTree: data.data.inDialogueTree
+          inDialogueTree: data.data.inDialogueTree,
+          timestamp: new Date().toISOString()
         };
       } else {
         throw new Error('Invalid response from server');
@@ -65,7 +154,8 @@ export default function ChatPage() {
       return {
         text: "G'day! I'm having a bit of trouble right now, but I'll be back soon!",
         followUp: null,
-        inDialogueTree: false
+        inDialogueTree: false,
+        timestamp: new Date().toISOString()
       };
     }
   };
@@ -73,7 +163,7 @@ export default function ChatPage() {
   useEffect(() => {
     if (initialMessage) {
       // Add the user's initial message
-      setMessages([{ type: "user", text: initialMessage }]);
+      setMessages([{ type: "user", text: initialMessage, timestamp: new Date().toISOString() }]);
       
       // Show typing indicator
       setIsTyping(true);
@@ -81,8 +171,8 @@ export default function ChatPage() {
       // Get response from API
       sendMessageToAPI(initialMessage).then((response) => {
         setMessages([
-          { type: "user", text: initialMessage },
-          { type: "bot", text: response.text, followUp: response.followUp }
+          { type: "user", text: initialMessage, timestamp: new Date().toISOString() },
+          { type: "bot", text: response.text, followUp: response.followUp, timestamp: response.timestamp }
         ]);
         setIsTyping(false);
       });
@@ -96,7 +186,11 @@ export default function ChatPage() {
     e.preventDefault();
     if (inputValue.trim()) {
       const userMessage = inputValue.trim();
-      const newUserMessage = { type: "user", text: userMessage };
+      const newUserMessage = { 
+        type: "user", 
+        text: userMessage,
+        timestamp: new Date().toISOString()
+      };
       setMessages([...messages, newUserMessage]);
       setInputValue("");
       setError(null);
@@ -109,7 +203,12 @@ export default function ChatPage() {
       
       setMessages(prev => [
         ...prev,
-        { type: "bot", text: response.text, followUp: response.followUp }
+        { 
+          type: "bot", 
+          text: response.text, 
+          followUp: response.followUp,
+          timestamp: response.timestamp
+        }
       ]);
       setIsTyping(false);
     }
@@ -139,15 +238,29 @@ export default function ChatPage() {
             )}
             <div className="messages-container">
               {messages.map((msg, index) => (
-                <div key={index}>
+                <div key={index} className="message-wrapper">
                   <div className={`message ${msg.type}-message`}>
                     <div className="message-bubble">
-                      {msg.text}
+                      <p className="message-text">{msg.text}</p>
+                      {msg.timestamp && (
+                        <span className="message-time">{formatTime(msg.timestamp)}</span>
+                      )}
                     </div>
                   </div>
                   {msg.followUp && msg.type === "bot" && (
                     <div className="follow-up-hint">
-                      💡 {msg.followUp}
+                      <span className="hint-text">💡 {msg.followUp}</span>
+                      <div className="suggested-topics">
+                        {extractTopics(msg.followUp).map((topic, idx) => (
+                          <button 
+                            key={idx}
+                            className="topic-chip"
+                            onClick={() => handleTopicClick(topic)}
+                          >
+                            {topic}
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -171,14 +284,14 @@ export default function ChatPage() {
             <form onSubmit={handleSubmit} className="chat-input-form">
               <input
                 type="text"
-                className="chat-input"
-                placeholder="What's on your mind mate?"
+                className={isTyping ? "chat-input disabled" : "chat-input"}
+                placeholder={isTyping ? "Steve is thinking..." : "Ask me about crocs, snakes, or conservation, mate!"}
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 disabled={isTyping}
               />
               <button type="submit" className="send-button" disabled={isTyping}>
-                Send
+                Send it mate! 🐊
               </button>
             </form>
           </div>

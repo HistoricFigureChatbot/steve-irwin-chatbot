@@ -18,30 +18,35 @@ This application allows users to interact with an AI-powered chatbot that respon
 ## Technology Stack
 
 **Frontend:**
+
 - React 19.2.0
 - React Router DOM 7.9.5
 - Vite 7.2.2
 - CSS3 with Akshar font from Google Fonts
 
 **Backend (In Progress):**
+
 - Express.js
 - JSON-based scripting engine
 
 ## Getting Started
 
 **Prerequisites:**
+
 - Node.js (v16 or higher)
 - npm package manager
 
 **Installation:**
 
 1. Clone the repository
+
    ```bash
    git clone https://github.com/HistoricFigureChatbot/steve-irwin-chatbot.git
    cd steve-irwin-chatbot
    ```
 
 2. Install dependencies and start the development server
+
    ```bash
    cd frontend
    npm install
@@ -72,10 +77,33 @@ steve-irwin-chatbot/
 
 ## Available Scripts
 
+**Frontend:**
+
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
+- `npm run lint` - Run ESLint to check code quality
+- `npm run lint:fix` - Automatically fix ESLint errors
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check if code is formatted
+
+**Backend:**
+
+- `npm start` - Start the backend server
+- `npm run lint` - Run ESLint to check code quality
+- `npm run lint:fix` - Automatically fix ESLint errors
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check if code is formatted
+
+## Code Quality
+
+This project uses **ESLint** and **Prettier** to maintain high code quality and consistent formatting:
+
+- **ESLint**: Catches errors and enforces coding standards
+- **Prettier**: Automatically formats code for consistency
+- **Auto-formatting**: Code is formatted on save in VS Code (requires Prettier extension)
+
+Run `npm run format` and `npm run lint:fix` before committing to ensure code quality!
 
 ## Assignment Requirements
 
