@@ -80,9 +80,41 @@ function isSpecificQuestion(message) {
  * Check if a keyword matches as a whole word (not part of another word)
  */
 function matchesWholeWord(text, keyword) {
-  // Create regex with word boundaries
-  const pattern = new RegExp(`\\b${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
-  return pattern.test(text);
+  // Convert both to lowercase for case-insensitive comparison
+  const textLower = text.toLowerCase();
+  const keywordLower = keyword.toLowerCase();
+  
+  // Find all occurrences of the keyword
+  let index = textLower.indexOf(keywordLower);
+  
+  while (index !== -1) {
+    // Check character before keyword (should be non-letter or start of string)
+    const charBefore = index > 0 ? textLower[index - 1] : ' ';
+    const isValidBefore = !isLetter(charBefore);
+    
+    // Check character after keyword (should be non-letter or end of string)
+    const charAfter = index + keywordLower.length < textLower.length 
+      ? textLower[index + keywordLower.length] 
+      : ' ';
+    const isValidAfter = !isLetter(charAfter);
+    
+    // If both boundaries are valid, it's a whole word match
+    if (isValidBefore && isValidAfter) {
+      return true;
+    }
+    
+    // Look for next occurrence
+    index = textLower.indexOf(keywordLower, index + 1);
+  }
+  
+  return false;
+}
+
+/**
+ * Helper function to check if a character is a letter
+ */
+function isLetter(char) {
+  return (char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z');
 }
 
 /**
