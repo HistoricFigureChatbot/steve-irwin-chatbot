@@ -11,6 +11,8 @@ export default function ChatPage() {
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [error, setError] = useState(null);
+  const [crocSnapping, setCrocSnapping] = useState(false);
+  const [showSpeechBubble, setShowSpeechBubble] = useState(false);
   const messagesEndRef = useRef(null);
 
   // Default greeting message
@@ -182,6 +184,20 @@ export default function ChatPage() {
     }
   }, [initialMessage]);
 
+  const handleCrocClick = () => {
+    setShowSpeechBubble(true);
+    setCrocSnapping(true);
+    
+    // Reset after animation
+    setTimeout(() => {
+      setShowSpeechBubble(false);
+    }, 2000);
+    
+    setTimeout(() => {
+      setCrocSnapping(false);
+    }, 1500);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (inputValue.trim()) {
@@ -222,11 +238,19 @@ export default function ChatPage() {
         alt="Steve Irwin with koala" 
         className="steve-character-left"
       />
-      <img 
-        src="/cute-croc.png" 
-        alt="Cute crocodile" 
-        className="croc-character-right"
-      />
+      <div className="croc-container">
+        <img 
+          src={crocSnapping ? "/croc-snap.png" : "/cute-croc.png"}
+          alt="Cute crocodile" 
+          className={`croc-character-right ${crocSnapping ? 'snapping' : ''}`}
+          onClick={handleCrocClick}
+        />
+        {showSpeechBubble && (
+          <div className="croc-speech-bubble">
+            I'll snap! 🐊
+          </div>
+        )}
+      </div>
       
       <div className="chat-content">
         <div className="messages-wrapper">
