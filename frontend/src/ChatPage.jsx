@@ -13,6 +13,13 @@ export default function ChatPage() {
   const [error, setError] = useState(null);
   const messagesEndRef = useRef(null);
 
+  // Default greeting message
+  const defaultGreeting = {
+    type: "bot",
+    text: "G'day mate! I'm Steve Irwin, and I'm absolutely stoked to chat with you about wildlife!",
+    followUp: "💡 Try asking me about: crocodiles, snakes, family, or conservation!"
+  };
+
   // Auto-scroll to bottom when messages change
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -79,6 +86,9 @@ export default function ChatPage() {
         ]);
         setIsTyping(false);
       });
+    } else {
+      // Show default greeting when no initial message
+      setMessages([defaultGreeting]);
     }
   }, [initialMessage]);
 
