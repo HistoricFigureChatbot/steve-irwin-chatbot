@@ -78,32 +78,12 @@ steve-irwin-chatbot/
 ## Available Scripts
 
 **Frontend:**
-
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint to check code quality
-- `npm run lint:fix` - Automatically fix ESLint errors
-- `npm run format` - Format code with Prettier
-- `npm run format:check` - Check if code is formatted
 
 **Backend:**
-
 - `npm start` - Start the backend server
-- `npm run lint` - Run ESLint to check code quality
-- `npm run lint:fix` - Automatically fix ESLint errors
-- `npm run format` - Format code with Prettier
-- `npm run format:check` - Check if code is formatted
-
-## Code Quality
-
-This project uses **ESLint** and **Prettier** to maintain high code quality and consistent formatting:
-
-- **ESLint**: Catches errors and enforces coding standards
-- **Prettier**: Automatically formats code for consistency
-- **Auto-formatting**: Code is formatted on save in VS Code (requires Prettier extension)
-
-Run `npm run format` and `npm run lint:fix` before committing to ensure code quality!
 
 ## Assignment Requirements
 

@@ -1,7 +1,22 @@
+/**
+ * Chat Controller
+ * Handles HTTP requests for chat endpoints
+ * Validates user input and returns appropriate responses
+ */
+
 import { processMessage, getStats } from '../services/chatService.js';
 
 /**
- * Handle incoming chat messages
+ * Handle incoming chat messages from users
+ * Validates the message, processes it through the chat service, and returns a response
+ * 
+ * @param {Object} req - Express request object
+ * @param {Object} req.body - Request body
+ * @param {string} req.body.message - User's message text
+ * @param {string} [req.body.userId='default'] - Optional user identifier
+ * @param {Object} res - Express response object
+ * @returns {Promise<Object>} JSON response with bot reply and metadata
+ * 
  * @route POST /api/chat
  */
 export const sendMessage = async (req, res) => {
@@ -43,6 +58,12 @@ export const sendMessage = async (req, res) => {
 
 /**
  * Health check endpoint
+ * Returns server status and statistics about available topics
+ * 
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns {Object} JSON response with server status and statistics
+ * 
  * @route GET /api/health
  */
 export const healthCheck = (req, res) => {

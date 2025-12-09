@@ -1,3 +1,15 @@
+/**
+ * App Component
+ * Root application component that sets up routing for the entire application
+ * Contains navigation bar and route definitions for all pages
+ * 
+ * Routes:
+ * - / : Home page with hero section
+ * - /chat : Main chatbot interface
+ * - /about : Information about Steve Irwin
+ * - /conservation : Conservation efforts and legacy
+ */
+
 import { Routes, Route } from "react-router-dom";
 import Home from "./Home.jsx";
 import ChatPage from "./ChatPage.jsx";

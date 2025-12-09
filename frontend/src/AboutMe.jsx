@@ -1,3 +1,15 @@
+/**
+ * AboutMe Component
+ * Informational page about Steve Irwin's life, family, and passion for wildlife
+ * Contains biographical information, images, and personal stories
+ * 
+ * Content sections:
+ * - Introduction and greeting
+ * - Family and personal life
+ * - Favourite animals and wildlife experiences
+ * - Conservation philosophy and mission
+ */
+
 import "./AboutMe.css";
 
 export default function AboutMe() {

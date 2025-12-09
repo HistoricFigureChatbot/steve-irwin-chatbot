@@ -1,3 +1,15 @@
+/**
+ * Navbar Component
+ * Main navigation bar for the Steve Irwin chatbot application
+ * Provides site-wide navigation and theme toggle functionality
+ * 
+ * Features:
+ * - Responsive design with mobile hamburger menu
+ * - Active link highlighting based on current route
+ * - Dark/light mode toggle
+ * - Conditional logo display (hidden on home page)
+ */
+
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
@@ -9,10 +21,16 @@ export default function Navbar() {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
+  /**
+   * Toggles mobile menu open/closed state
+   */
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  /**
+   * Closes mobile menu (called when link is clicked)
+   */
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };

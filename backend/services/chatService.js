@@ -14,8 +14,25 @@ import { getResponsesByPath, selectResponseByProbability, getFollowUpHint, getSt
 export { loadResponses, loadConversations, getStats };
 
 /**
- * Main function to process message with smart routing and dialogue trees
- * Now uses modular services for better code organization
+ * Main function to process user messages with intelligent routing
+ * Handles dialogue trees, greetings, farewells, specific questions, and general topics
+ * Uses modular services for message analysis, session management, and response selection
+ * 
+ * Processing flow:
+ * 1. Check if user is in an active dialogue tree
+ * 2. Detect greetings and farewells
+ * 3. Handle specific questions (what, how, why, etc.)
+ * 4. Search for topic-based responses
+ * 5. Fall back to LLM for unhandled queries
+ * 
+ * @param {string} message - User's message text
+ * @param {string} userId - Unique user identifier for session tracking (default: 'default')
+ * @returns {Promise<Object>} Response object containing:
+ *   - response: Bot's reply text
+ *   - topics: Array of matched topics
+ *   - isLLM: Whether response came from LLM
+ *   - inDialogueTree: Whether user is in a dialogue tree
+ *   - followUp: Optional follow-up hint
  */
 export async function processMessage(message, userId = 'default') {
   const userSession = getUserSession(userId);

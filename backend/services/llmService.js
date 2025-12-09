@@ -1,8 +1,20 @@
+/**
+ * LLM Service
+ * Handles communication with Groq API for generating Steve Irwin responses
+ * Uses Claude Sonnet model for natural language generation
+ */
+
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
 
 /**
  * Call Groq API with given messages
+ * Makes a POST request to Groq API with conversation messages
+ * 
+ * @param {Array} messages - Array of message objects with role and content
+ * @param {number} [maxTokens=200] - Maximum tokens in response
+ * @returns {Promise<string>} Generated response text
+ * @throws {Error} If API request fails
  */
 async function callGroqAPI(messages, maxTokens = 200) {
   const response = await fetch(GROQ_API_URL, {
@@ -31,6 +43,10 @@ async function callGroqAPI(messages, maxTokens = 200) {
 
 /**
  * Validate if the response sounds like Steve Irwin
+ * Checks if generated response matches Steve's personality and speaking style
+ * 
+ * @param {string} response - Generated response to validate
+ * @returns {Promise<boolean>} True if response sounds authentic, false otherwise
  */
 async function validateSteveIrwinResponse(response) {
   const validationMessages = [
@@ -73,6 +89,11 @@ Answer only YES or NO.`
 
 /**
  * Get a response from Groq LLM when no scripted response is available
+ * Generates Steve Irwin-style responses using AI for unscripted questions
+ * Includes validation to ensure responses sound authentic
+ * 
+ * @param {string} userMessage - User's message or question
+ * @returns {Promise<string>} Generated response in Steve Irwin's voice
  */
 export async function getLLMResponse(userMessage) {
   if (!GROQ_API_KEY) {
