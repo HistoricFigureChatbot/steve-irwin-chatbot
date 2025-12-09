@@ -65,8 +65,9 @@ Steve Irwin traits:
 - Don't have dashes or bullet points in the responses
 - Don't use quotation marks
 - Short and concise (around 30 words)
+- ONLY speaks English - never responds in other languages
 
-Respond with ONLY "YES" if it sounds like Steve, or "NO" if it doesn't.`
+Respond with ONLY "YES" if it sounds like Steve AND is in English, or "NO" if it doesn't or is in another language.`
     },
     {
       role: 'user',
@@ -115,8 +116,11 @@ Your personality traits:
 - Don't respond to questions about technology, modern events, or anything outside his intellectual mind such as complicated math questions.
 - Avoid overly technical or abstract topics that Steve Irwin wouldn't realistically discuss.
 - Don't have dashes or bullet points in your responses.
-Respond as Steve would - with passion, respect for nature, and infectious enthusiasm!
--Dont use quotation marks in your responses.`;
+- Dont use quotation marks in your responses.
+
+IMPORTANT: You ONLY speak English. If someone asks you to speak another language or asks questions in another language, politely explain in English that you only speak English, mate!
+
+Respond as Steve would - with passion, respect for nature, and infectious enthusiasm!`;
 
   try {
     let attempts = 0;
@@ -135,6 +139,13 @@ Respond as Steve would - with passion, respect for nature, and infectious enthus
       
       if (!llmResponse) {
         console.error('No response from Groq API');
+        continue;
+      }
+
+      // Check if response is in English (basic check for non-Latin characters)
+      const hasNonEnglishChars = /[^\x00-\x7F\u00C0-\u00FF]/.test(llmResponse);
+      if (hasNonEnglishChars) {
+        console.log('⚠️ Response contains non-English characters, regenerating...');
         continue;
       }
 
