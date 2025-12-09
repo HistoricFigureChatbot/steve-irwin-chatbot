@@ -70,14 +70,71 @@ html[data-theme="dark"] .chat-page-container::after {
   width: 280px;
   height: auto;
   z-index: 10;
-  pointer-events: none;
+  pointer-events: auto;
   opacity: 0.95;
   filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
   transition: all 0.4s ease;
+  cursor: pointer;
 }
 
 .croc-character-right:hover {
   transform: scale(1.05);
+}
+
+.croc-character-right.snapping {
+  animation: snapAnimation 0.5s ease-in-out;
+}
+
+@keyframes snapAnimation {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+}
+
+.croc-container {
+  position: relative;
+}
+
+.croc-speech-bubble {
+  position: fixed;
+  right: 300px;
+  bottom: 150px;
+  background-color: white;
+  color: #333;
+  padding: 12px 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 1.2rem;
+  font-weight: 600;
+  z-index: 11;
+  animation: bubbleAppear 0.3s ease-out;
+  font-family: 'Akshar', system-ui, sans-serif;
+}
+
+.croc-speech-bubble::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  bottom: 30px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid white;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+@keyframes bubbleAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .chat-content {
