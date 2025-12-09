@@ -23,7 +23,7 @@ export default function ChatInput({ value, onChange, onSubmit, isTyping }) {
         disabled={isTyping}
       />
       <button type="submit" className="send-button" disabled={isTyping}>
-        Send it mate! 🐊
+        Send it mate!
       </button>
     </form>
   );
