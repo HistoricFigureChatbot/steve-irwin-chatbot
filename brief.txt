@@ -1,0 +1,287 @@
+School of Computing and Engineering
+Unit: Software Engineering
+Unit Contact: Benjamin Gorman Credits: 20 Level: 5
+Assessment Title: Historical Figure - Conversational Chatbot
+Assessment Number: 1 of 2
+Assessment Type: Group Weighting (%): 70%
+Deadline: 16/12/2025 12:00 PM Submission Method: Brightspace assignment
+(Large/multiple file)
+Quality Assessor (QA): Andrew Yearp Other Marker(s): Yan Gong
+Can I use Generative AI tools?
+Basic spelling and grammar correction tools are permitted.
+Full Generative AI
+You may use generative AI throughout the assessment to support your own work. You do not need to
+acknowledge which content is generative AI-generated.
+Tasks:
+You will work in a team to design and develop a web-based chatbot system that simulates conversations with
+a historical figure of your choice. This could be a well-known figure such as Cleopatra, King Tutankhamun, Ada
+Lovelace — or someone more niche and interesting like Graham Gore, Mary Anning, or Takashi Nagai.
+Your chatbot must:
+• Run as a React front-end app with an Express backend, written in either JavaScript or Typescript
+• Use a JSON-based scripting engine to control conversation logic
+• Present an accessible, responsive user interface
+• Include documentation and reflection on your team process, design decisions, and use of any AI tools
+Your project should demonstrate strong software engineering practice, including requirements gathering, user-
+focused design, architecture decisions, testing, and version control.
+Submission Coursework Brief
+Team Working & Expectations
+You’ll work in a team of four students to design and build your chatbot system. You can choose your own group
+by completing the team signup form on Brightspace by 15th October 2025. If you don’t submit a group, you’ll be
+assigned one.
+All students must:
+• Contribute to the project — this is a software engineering assignment, and everyone is expected to have
+evidence of hands-on applied work.
+• Work professionally: attend meetings, stick to your plan, and communicate regularly with your group.
+• Submit an individual peer review form. This helps us identify if anyone didn’t contribute fairly — marks
+may be adjusted based on this.
+• Raise serious issues early. Use the peer review form or contact the unit leader directly.
+Groups of a different size may be allowed in exceptional circumstances, but only with approval from the unit
+leader. These groups will still be marked according to the same criteria as four-person teams.
+Intended Learning Outcomes (ILOs)
+1. Understand the software development process and lifecycle as well as activities in different stages with
+appreciation of software quality and relevant professional standards, legal and ethical principles.
+2. Demonstrate the ability to critically analyse the requirements, design and develop software applications.
+3. Understand and improve security and usability during the development.
+4. Demonstrate the ability to work in a team in applying the above to solve complex problems.
+Submission Format:
+You must submit the following via Brightspace:
+• A .zip file containing your full project code (React frontend and Express backend).
+• A short video demo (maximum 6 minutes, .mp4 format).
+• A group project report (maximum 12 pages, excluding references and appendices (max 5 pages), PDF
+format).
+• An individual peer evaluation form (PDF format).
+A report template will be provided and must be followed. Reports that do not follow the structure or exceed
+the page limit may be penalised. All group members are expected to contribute equally.
+The group project report should provide a clear account of your system and process, including:
+• Project summary.
+• Well-structured requirements (including accessibility).
+• System design and architecture overview.
+• Explanation of your JSON or AI-based chatbot logic.
+• Notes on team workflow and tools used.
+• Reflection on key challenges and lessons learned.
+• References should be in the APA standard
+The video demo should present your work in a clear and professional way. It must:
+• Demonstrate the working system and key user interactions.
+• Show how the chatbot responds to input and manages dialogue flow.
+• Briefly explain the design process and major technical decisions.
+How will this be assessed?
+Criteria Available Marks (100)
+Code & Technical Implementation (Assesses ILOs 2 & 4)
+a. Professional React and Express codebase (use of appropriate
+component design, application structure and documentation to
+JSDoc standard)
+b. Extensions to class-taught content (e.g. LLM features,
+advanced state handling, external APIs)
+20
+Demo, Interaction & Chatbot Behaviour (Assesses ILOs 1 & 2)
+a. Usability and accessibility of the chatbot interface
+b. Creative and engaging interaction design, aligned with the
+chosen persona
+c. Clear demonstration of features and behaviour in the video
+demo
+30
+Report & Design Process (Assesses ILOs 1, 2 & 3)
+a. Clear and appropriate requirements
+b. Logical architecture and design decisions, with rationale
+c. Thoughtful reflections on design and development
+d. Well-structured, complete report following the template
+50
+Total 100
+Questions about this assessment:
+Your questions regarding the brief will be addressed by the teaching team (Dr Benjamin Gorman,
+bgorman@bournemouth.ac.uk, Dr. Yan Gong, ygong@bournemouth.ac.uk) during lectures, labs, via email, on
+MS Teams.
+Academic Integrity
+The work you submit must be your own. Any attempt to gain an unfair advantage in your assessment by
+cheating, deception or fraud is considered an academic offence. The 'Assessment help and support' section of
+the unit (found under 'Assessment' in the content area) provides more guidance on avoiding academic
+offences, including any guidance on what will or will not be considered an academic offence in this
+specific assessment.
+Help and support
+The 'Assessment help and support' section of the unit (found under 'Assessment' in the content area) provides
+information and guidance, including specific information on support for this assessment. It provides help with
+our policies on deadline extensions and information on support available in the university, including academic
+skills support and additional learning support for students with disabilities.
+Disclaimer: The information provided in this assignment brief is correct at time of publication. In the unlikely
+event that any changes are deemed necessary, they will be communicated clearly via e-mail and via the VLE
+and a new version of this coursework brief will be circulated.
+Version: 1.0
+Updated: October 2025
+Issued Date: 8/10/2025
+ASSESSMENT 1 – Conversational AI Chatbot – Historical Figure Edition, MARKING CRITERIA – SOFTWARE ENGINEERING
+Assessment Criteria Marks High First
+(80%+)
+First
+(70-79%)
+Second Class
+(50-69%)
+Third Class
+(40-49%)
+Fail
+(30-39%)
+Poor Fail
+(0-29%)
+Code & Technical
+Implementation (Assesses
+ILOs 2 & 4)
+a. Professional React and
+Express codebase (use of
+appropriate component
+design, application structure
+and documentation to JSDoc
+standard)
+b. Extensions to class-taught
+content (e.g. LLM features,
+advanced state handling,
+external APIs)
+20
+(16-20 Marks)
+Code is professional in
+quality: well-structured, clear
+naming, strong use of
+objects/loops/functions,
+excellent documentation.
+Multiple well-executed
+extensions beyond class
+content.
+(14-15 Marks)
+Code is excellent
+quality: clear naming,
+very good structure,
+good use of
+objects/loops/functions,
+well documented. Some
+extensions beyond class
+content.
+(10-13 Marks)
+Code is good quality:
+mostly clear naming and
+structure, some good use of
+objects/loops/functions,
+reasonably well
+documented. Limited
+extensions beyond class
+content. May contain minor
+bugs.
+(8-9 Marks)
+Code is reasonable: some
+structure but inconsistent
+naming, limited documentation,
+minimal or no extensions beyond
+class content. May contain
+errors.
+(6-7 Marks)
+Code is poorly
+structured, with
+little clear naming
+or documentation.
+Numerous errors
+present.
+(0-5 Marks)
+Very little code or
+no code provided.
+The code might not
+compile.
+Demo, Interaction & Chatbot
+Behaviour (Assesses ILOs 1
+& 2)
+a. Usability and accessibility
+of the chatbot interface
+b. Creative and engaging
+interaction design, aligned
+with the chosen persona
+c. Clear demonstration of
+features and behaviour in the
+video demo
+30
+(24-30 Marks)
+Demo is professional,
+polished, and clearly
+demonstrates functionality.
+Strong evidence of usability,
+accessibility, and alignment
+with persona. Questions
+addressed clearly and
+convincingly.
+(21-23 Marks)
+Demo clearly shows
+system features and
+user interactions, with
+good usability and
+accessibility. Minor
+polish or detail may be
+missing.
+(15-20 Marks)
+Demo covers all significant
+interactions, though clarity
+and polish may be lacking.
+Usability and accessibility
+are reasonable.
+(12-14 Marks)
+Demo is limited in scope or
+misses some key interactions.
+Usability/accessibility issues
+evident. Answers to questions
+are weak..
+(9-11 Marks)
+Demo is
+incomplete or
+unclear, with
+critical features
+missing.
+(0-8 Marks)
+Little or no
+evidence of a
+working demo.
+Report & Design Process
+(Assesses ILOs 1, 2 & 3)
+a. Clear and appropriate
+requirements
+b. Logical architecture and
+design decisions, with
+rationale
+c. Thoughtful reflections on
+design and development
+d. Well-structured, complete
+report following the template
+50
+(40-50 Marks)
+Report is exceptionally well-
+structured and complete.
+Requirements are clear and
+comprehensive. Architecture
+and design are well
+reasoned. Reflections show
+excellent insight.
+(35-39 Marks)
+Report is well-
+structured, requirements
+appropriate, design
+rationale clear, and
+reflections thoughtful.
+Some minor
+weaknesses.
+(25-34 Marks)
+Report is complete with
+generally clear
+requirements and design.
+Some rationale or reflection
+may lack depth.
+(20-24 Marks)
+Report is adequate but limited in
+detail. Requirements, design
+rationale, or reflections are weak
+or inconsistent.
+(15-19 Marks)
+Report is
+incomplete or
+poorly structured.
+Requirements
+vague, design
+rationale weak,
+reflections
+minimal.
+(0-14 Marks)
+Little or no
+evidence of a
+meaningful report.
