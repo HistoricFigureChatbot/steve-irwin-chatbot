@@ -79,14 +79,19 @@ export function isGreeting(message) {
   
   if (!greetingTopic) return false;
   
+  console.log(`🔍 Checking if "${message}" is a greeting...`);
+  
   for (const keyword of greetingTopic.keywords) {
     // Use whole-word matching to avoid false positives like "which" matching "hi"
-    if (matchesWholeWord(messageLower, keyword)) {
+    const isMatch = matchesWholeWord(messageLower, keyword);
+    console.log(`  - Checking keyword "${keyword}": ${isMatch}`);
+    if (isMatch) {
       console.log(`👋 Detected greeting: "${keyword}"`);
       return true;
     }
   }
   
+  console.log(`  ❌ No greeting match found`);
   return false;
 }
 
@@ -153,9 +158,9 @@ export function findTopic(message) {
     // Skip default topic - use as fallback
     if (topicName === 'default') continue;
     
-    // Check if any keyword from this topic appears in the message
+    // Check if any keyword from this topic appears in the message using whole-word matching
     for (const keyword of topicData.keywords) {
-      if (messageLower.indexOf(keyword.toLowerCase()) !== -1) {
+      if (matchesWholeWord(messageLower, keyword)) {
         console.log(`✅ Matched topic: ${topicName} (keyword: "${keyword}")`);
         matchedTopics.push({
           name: topicName,

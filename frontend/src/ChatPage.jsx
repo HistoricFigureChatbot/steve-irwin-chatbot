@@ -1,8 +1,37 @@
+/**
+ * ChatPage Component
+ * Main chat interface for conversing with Steve Irwin chatbot
+ * Manages message state, API communication, and typing indicators
+ * Integrates multiple child components for clean separation of concerns
+ * 
+ * Features:
+ * - Real-time chat with backend API
+ * - Typing indicators for better UX
+ * - Message history with timestamps
+ * - Clickable topic suggestions
+ * - Error handling with user-friendly messages
+ * - Auto-scroll to latest messages
+ * - Initial message support from routing state
+ */
+
 import { useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
+import MessageList from "./components/MessageList";
+import TypingIndicator from "./components/TypingIndicator";
+import ChatInput from "./components/ChatInput";
+import ErrorBanner from "./components/ErrorBanner";
+import CrocodileCharacter from "./components/CrocodileCharacter";
 import "./ChatPage.css";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001/api";
+
+// Default greeting message shown on initial load
+const defaultGreeting = {
+  type: "bot",
+  text: "G'day mate! I'm Steve Irwin, and I'm absolutely stoked to chat with you about wildlife!",
+  followUp: "💡 Try asking me about: crocodiles, snakes, family, or conservation!",
+  timestamp: new Date().toISOString()
+};
 
 export default function ChatPage() {
   const location = useLocation();
@@ -11,106 +40,22 @@ export default function ChatPage() {
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [error, setError] = useState(null);
-  const [crocSnapping, setCrocSnapping] = useState(false);
-  const [showSpeechBubble, setShowSpeechBubble] = useState(false);
   const messagesEndRef = useRef(null);
 
-  // Default greeting message
-  const defaultGreeting = {
-    type: "bot",
-    text: "G'day mate! I'm Steve Irwin, and I'm absolutely stoked to chat with you about wildlife!",
-    followUp: "💡 Try asking me about: crocodiles, snakes, family, or conservation!",
-    timestamp: new Date().toISOString()
-  };
-
-  // Extract clickable topics from follow-up hint
-  const extractTopics = (followUpText) => {
-    if (!followUpText) return [];
-    
-    // Convert to lowercase for easier matching
-    const lowerText = followUpText.toLowerCase();
-    
-    // Find "about:" or "about " in the text
-    let startIndex = lowerText.indexOf('about:');
-    if (startIndex === -1) {
-      startIndex = lowerText.indexOf('about ');
-    }
-    
-    if (startIndex === -1) return [];
-    
-    // Move past "about:" or "about "
-    startIndex = startIndex + 6; // Skip "about:"
-    
-    // Find the end (either ! or . or end of string)
-    let endIndex = followUpText.indexOf('!', startIndex);
-    if (endIndex === -1) {
-      endIndex = followUpText.indexOf('.', startIndex);
-    }
-    if (endIndex === -1) {
-      endIndex = followUpText.length;
-    }
-    
-    // Extract the substring
-    const topicsString = followUpText.substring(startIndex, endIndex).trim();
-    
-    // Split by comma and "or"
-    const topics = [];
-    let currentTopic = '';
-    let i = 0;
-    
-    while (i < topicsString.length) {
-      const char = topicsString[i];
-      
-      // Check if we hit a comma
-      if (char === ',') {
-        if (currentTopic.trim().length > 0) {
-          topics.push(currentTopic.trim());
-        }
-        currentTopic = '';
-        i++;
-        continue;
-      }
-      
-      // Check if we hit " or "
-      if (i + 4 <= topicsString.length && 
-          topicsString.substring(i, i + 4) === ' or ') {
-        if (currentTopic.trim().length > 0) {
-          topics.push(currentTopic.trim());
-        }
-        currentTopic = '';
-        i += 4;
-        continue;
-      }
-      
-      currentTopic += char;
-      i++;
-    }
-    
-    // Add the last topic
-    if (currentTopic.trim().length > 0) {
-      topics.push(currentTopic.trim());
-    }
-    
-    return topics;
-  };
-
-  // Handle topic chip click
+  /**
+   * Handles topic chip click from follow-up hints
+   * Populates input field with clicked topic
+   * 
+   * @param {string} topic - Topic string to populate in input
+   */
   const handleTopicClick = (topic) => {
     setInputValue(topic);
   };
 
-  // Format timestamp for display
-  const formatTime = (timestamp) => {
-    if (!timestamp) return '';
-    const date = new Date(timestamp);
-    return date.toLocaleTimeString('en-US', { 
-      hour: 'numeric', 
-      minute: '2-digit',
-      hour12: true 
-    });
-  };
-
-  // Auto-scroll to bottom when messages change
+  /**
+   * Auto-scrolls chat container to show latest messages
+   * Called when messages change or typing indicator appears
+   */
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -119,10 +64,17 @@ export default function ChatPage() {
     scrollToBottom();
   }, [messages, isTyping]);
 
-  // Function to send message to backend API
+  /**
+   * Sends user message to backend API
+   * Includes 800ms minimum delay for human-like response feel
+   * Handles API errors gracefully with fallback messages
+   * 
+   * @param {string} messageText - User's message text
+   * @returns {Promise<Object>} Response object with text, followUp, and timestamp
+   */
   const sendMessageToAPI = async (messageText) => {
     try {
-      // Add minimum delay to ensure typing indicator is visible
+      // Add minimum delay to ensure typing indicator is visible and create human feel
       const [response] = await Promise.all([
         fetch(`${API_URL}/chat`, {
           method: 'POST',
@@ -131,7 +83,7 @@ export default function ChatPage() {
           },
           body: JSON.stringify({ message: messageText }),
         }),
-        new Promise(resolve => setTimeout(resolve, 800)) // Minimum 800ms delay
+        new Promise(resolve => setTimeout(resolve, 800)) // Minimum 800ms delay for human feel
       ]);
 
       if (!response.ok) {
@@ -162,6 +114,11 @@ export default function ChatPage() {
     }
   };
 
+  /**
+   * Initializes chat on component mount
+   * Handles initial message from routing state or shows default greeting
+   * Sets up initial API call if message provided via navigation
+   */
   useEffect(() => {
     if (initialMessage) {
       // Add the user's initial message
@@ -184,20 +141,12 @@ export default function ChatPage() {
     }
   }, [initialMessage]);
 
-  const handleCrocClick = () => {
-    setShowSpeechBubble(true);
-    setCrocSnapping(true);
-    
-    // Reset after animation
-    setTimeout(() => {
-      setShowSpeechBubble(false);
-    }, 2000);
-    
-    setTimeout(() => {
-      setCrocSnapping(false);
-    }, 1500);
-  };
-
+  /**
+   * Handles form submission for sending messages
+   * Prevents empty messages, manages typing state, and calls API
+   * 
+   * @param {Event} e - Form submit event
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (inputValue.trim()) {
@@ -238,86 +187,27 @@ export default function ChatPage() {
         alt="Steve Irwin with koala" 
         className="steve-character-left"
       />
-      <div className="croc-container">
-        <img 
-          src={crocSnapping ? "/croc-snap.png" : "/cute-croc.png"}
-          alt="Cute crocodile" 
-          className={`croc-character-right ${crocSnapping ? 'snapping' : ''}`}
-          onClick={handleCrocClick}
-        />
-        {showSpeechBubble && (
-          <div className="croc-speech-bubble">
-            I'll snap! 🐊
-          </div>
-        )}
-      </div>
+      <CrocodileCharacter />
       
       <div className="chat-content">
         <div className="messages-wrapper">
           <div className="chat-container-box">
-            {error && (
-              <div className="error-banner">
-                {error}
-              </div>
-            )}
-            <div className="messages-container">
-              {messages.map((msg, index) => (
-                <div key={index} className="message-wrapper">
-                  <div className={`message ${msg.type}-message`}>
-                    <div className="message-bubble">
-                      <p className="message-text">{msg.text}</p>
-                      {msg.timestamp && (
-                        <span className="message-time">{formatTime(msg.timestamp)}</span>
-                      )}
-                    </div>
-                  </div>
-                  {msg.followUp && msg.type === "bot" && (
-                    <div className="follow-up-hint">
-                      <span className="hint-text">💡 {msg.followUp}</span>
-                      <div className="suggested-topics">
-                        {extractTopics(msg.followUp).map((topic, idx) => (
-                          <button 
-                            key={idx}
-                            className="topic-chip"
-                            onClick={() => handleTopicClick(topic)}
-                          >
-                            {topic}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-              
-              {isTyping && (
-                <div className="message bot-message">
-                  <div className="message-bubble typing-indicator">
-                    <span>Steve is typing</span>
-                    <div className="typing-dots">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                  </div>
-                </div>
-              )}
-              <div ref={messagesEndRef} />
-            </div>
+            <ErrorBanner error={error} />
             
-            <form onSubmit={handleSubmit} className="chat-input-form">
-              <input
-                type="text"
-                className={isTyping ? "chat-input disabled" : "chat-input"}
-                placeholder={isTyping ? "Steve is thinking..." : "Ask me about crocs, snakes, or conservation, mate!"}
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                disabled={isTyping}
-              />
-              <button type="submit" className="send-button" disabled={isTyping}>
-                Send it mate! 🐊
-              </button>
-            </form>
+            <MessageList 
+              messages={messages}
+              messagesEndRef={messagesEndRef}
+              onTopicClick={handleTopicClick}
+            />
+            
+            {isTyping && <TypingIndicator />}
+            
+            <ChatInput 
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onSubmit={handleSubmit}
+              isTyping={isTyping}
+            />
           </div>
         </div>
       </div>

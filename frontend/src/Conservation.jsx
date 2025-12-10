@@ -1,3 +1,15 @@
+/**
+ * Conservation Component
+ * Informational page about wildlife conservation and how users can help
+ * Educates visitors on conservation importance and provides actionable steps
+ * 
+ * Content sections:
+ * - Steve Irwin's conservation philosophy
+ * - Current wildlife challenges
+ * - Ways to get involved and support conservation
+ * - Links to Wildlife Warriors and partner organizations
+ */
+
 import "./Conservation.css";
 
 export default function Conservation() {

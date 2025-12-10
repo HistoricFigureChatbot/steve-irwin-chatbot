@@ -1,8 +1,20 @@
+/**
+ * LLM Service
+ * Handles communication with Groq API for generating Steve Irwin responses
+ * Uses Claude Sonnet model for natural language generation
+ */
+
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
 
 /**
  * Call Groq API with given messages
+ * Makes a POST request to Groq API with conversation messages
+ * 
+ * @param {Array} messages - Array of message objects with role and content
+ * @param {number} [maxTokens=200] - Maximum tokens in response
+ * @returns {Promise<string>} Generated response text
+ * @throws {Error} If API request fails
  */
 async function callGroqAPI(messages, maxTokens = 200) {
   const response = await fetch(GROQ_API_URL, {
@@ -31,6 +43,10 @@ async function callGroqAPI(messages, maxTokens = 200) {
 
 /**
  * Validate if the response sounds like Steve Irwin
+ * Checks if generated response matches Steve's personality and speaking style
+ * 
+ * @param {string} response - Generated response to validate
+ * @returns {Promise<boolean>} True if response sounds authentic, false otherwise
  */
 async function validateSteveIrwinResponse(response) {
   const validationMessages = [
@@ -49,8 +65,9 @@ Steve Irwin traits:
 - Don't have dashes or bullet points in the responses
 - Don't use quotation marks
 - Short and concise (around 30 words)
+- ONLY speaks English - never responds in other languages
 
-Respond with ONLY "YES" if it sounds like Steve, or "NO" if it doesn't.`
+Respond with ONLY "YES" if it sounds like Steve AND is in English, or "NO" if it doesn't or is in another language.`
     },
     {
       role: 'user',
@@ -73,6 +90,11 @@ Answer only YES or NO.`
 
 /**
  * Get a response from Groq LLM when no scripted response is available
+ * Generates Steve Irwin-style responses using AI for unscripted questions
+ * Includes validation to ensure responses sound authentic
+ * 
+ * @param {string} userMessage - User's message or question
+ * @returns {Promise<string>} Generated response in Steve Irwin's voice
  */
 export async function getLLMResponse(userMessage) {
   if (!GROQ_API_KEY) {
@@ -94,8 +116,11 @@ Your personality traits:
 - Don't respond to questions about technology, modern events, or anything outside his intellectual mind such as complicated math questions.
 - Avoid overly technical or abstract topics that Steve Irwin wouldn't realistically discuss.
 - Don't have dashes or bullet points in your responses.
-Respond as Steve would - with passion, respect for nature, and infectious enthusiasm!
--Dont use quotation marks in your responses.`;
+- Dont use quotation marks in your responses.
+
+IMPORTANT: You ONLY speak English. If someone asks you to speak another language or asks questions in another language, politely explain in English that you only speak English, mate!
+
+Respond as Steve would - with passion, respect for nature, and infectious enthusiasm!`;
 
   try {
     let attempts = 0;
@@ -114,6 +139,13 @@ Respond as Steve would - with passion, respect for nature, and infectious enthus
       
       if (!llmResponse) {
         console.error('No response from Groq API');
+        continue;
+      }
+
+      // Check if response is in English (basic check for non-Latin characters)
+      const hasNonEnglishChars = /[^\x00-\x7F\u00C0-\u00FF]/.test(llmResponse);
+      if (hasNonEnglishChars) {
+        console.log('⚠️ Response contains non-English characters, regenerating...');
         continue;
       }
 

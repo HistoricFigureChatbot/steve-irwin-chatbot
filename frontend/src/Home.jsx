@@ -1,3 +1,15 @@
+/**
+ * Home Component
+ * Landing page for the Steve Irwin chatbot application
+ * Features hero section with greeting, search input, and conversation starters
+ * 
+ * Features:
+ * - Quick search input that navigates to chat with initial message
+ * - 3 randomly selected conversation starter buttons
+ * - Responsive design with Steve Irwin imagery
+ * - Keyboard support (Enter to submit)
+ */
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
@@ -21,12 +33,21 @@ export default function Home() {
   const [selectedStarters, setSelectedStarters] = useState([]);
   const navigate = useNavigate();
 
-  // Pick 3 random conversation starters on component mount
+  /**
+   * Picks 3 random conversation starters on component mount
+   * Shuffles the array and selects first 3 items for variety
+   */
   useEffect(() => {
     const shuffled = [...conversationStarters].sort(() => Math.random() - 0.5);
     setSelectedStarters(shuffled.slice(0, 3));
   }, []);
 
+  /**
+   * Handles form submission from search input
+   * Navigates to chat page with the entered message as initial input
+   * 
+   * @param {Event} e - Form submit event
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputValue.trim()) {
@@ -35,13 +56,24 @@ export default function Home() {
     }
   };
 
+  /**
+   * Handles Enter key press in input field
+   * Prevents shift+enter (for multiline support) and submits on regular enter
+   * 
+   * @param {KeyboardEvent} e - Keyboard event
+   */
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       handleSubmit(e);
     }
   };
 
-  // Handle conversation starter button click
+  /**
+   * Handles conversation starter button click
+   * Navigates to chat page with predefined message
+   * 
+   * @param {string} message - Predefined conversation starter message
+   */
   const handleStarterClick = (message) => {
     navigate("/chat", { state: { initialMessage: message } });
   };
