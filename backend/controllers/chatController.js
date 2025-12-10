@@ -25,9 +25,9 @@ export const sendMessage = async (req, res) => {
 
     // Validate input
     if (!message || typeof message !== 'string' || message.trim() === '') {
-      return res.status(400).json({ 
+      return res.status(400).json({
         success: false,
-        error: 'Message is required' 
+        error: 'Message is required'
       });
     }
 
@@ -49,7 +49,7 @@ export const sendMessage = async (req, res) => {
 
   } catch (error) {
     console.error('Chat Error:', error);
-    return res.status(500).json({ 
+    return res.status(500).json({
       success: false,
       error: 'Crikey! I\'m just out wrestling a crocodile at the moment mate. I\'ll be back soon!'
     });
@@ -58,25 +58,23 @@ export const sendMessage = async (req, res) => {
 
 /**
  * Health check endpoint
- * Returns server status and statistics about available topics
+ * Returns server status - does not require data initialization
  * 
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
- * @returns {Object} JSON response with server status and statistics
+ * @returns {Object} JSON response with server status
  * 
  * @route GET /api/health
  */
 export const healthCheck = (req, res) => {
   try {
-    const stats = getStats();
-
-    return res.status(200).json({ 
+    // Basic health check without requiring data to be loaded
+    return res.status(200).json({
       success: true,
       status: 'Crikey! Server is running beautifully!',
       data: {
-        topics: stats.topics,
-        topicCount: stats.topicCount,
-        uptime: process.uptime()
+        uptime: process.uptime(),
+        timestamp: new Date().toISOString()
       }
     });
   } catch (error) {
