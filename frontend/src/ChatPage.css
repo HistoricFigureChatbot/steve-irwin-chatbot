@@ -64,17 +64,14 @@ html[data-theme="dark"] .chat-page-container::after {
 }
 
 .croc-character-right {
-  position: fixed;
-  right: 1%;
-  bottom: 0;
   width: 280px;
   height: auto;
-  z-index: 10;
   pointer-events: auto;
   opacity: 0.95;
   filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
   transition: all 0.4s ease;
   cursor: pointer;
+  display: block;
 }
 
 .croc-character-right:hover {
@@ -95,12 +92,15 @@ html[data-theme="dark"] .chat-page-container::after {
 }
 
 .croc-container {
-  position: relative;
+  position: fixed;
+  right: 1%;
+  bottom: 0;
+  z-index: 10;
 }
 
 .croc-speech-bubble {
-  position: fixed;
-  right: 300px;
+  position: absolute;
+  right: 250px;
   bottom: 150px;
   background-color: white;
   color: #333;
@@ -112,6 +112,7 @@ html[data-theme="dark"] .chat-page-container::after {
   z-index: 11;
   animation: bubbleAppear 0.3s ease-out;
   font-family: 'Akshar', system-ui, sans-serif;
+  white-space: nowrap;
 }
 
 .croc-speech-bubble::after {
@@ -493,9 +494,16 @@ html[data-theme="dark"] .follow-up-hint {
     width: 260px;
     left: 0.5%;
   }
+  .croc-container {
+    right: 0.5%;
+  }
   .croc-character-right {
     width: 240px;
-    right: 0.5%;
+  }
+  .croc-speech-bubble {
+    right: 220px;
+    bottom: 130px;
+    font-size: 1.1rem;
   }
 }
 
@@ -508,6 +516,11 @@ html[data-theme="dark"] .follow-up-hint {
     width: 200px;
     opacity: 0.9;
   }
+  .croc-speech-bubble {
+    right: 190px;
+    bottom: 110px;
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -519,12 +532,17 @@ html[data-theme="dark"] .follow-up-hint {
     width: 160px;
     opacity: 0.7;
   }
+  .croc-speech-bubble {
+    right: 150px;
+    bottom: 90px;
+    font-size: 0.95rem;
+  }
 }
 
 /* Hide character images on tablets and below */
 @media (max-width: 1000px) {
   .steve-character-left,
-  .croc-character-right {
+  .croc-container {
     opacity: 0;
     pointer-events: none;
   }

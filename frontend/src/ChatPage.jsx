@@ -44,12 +44,37 @@ export default function ChatPage() {
 
   /**
    * Handles topic chip click from follow-up hints
-   * Populates input field with clicked topic
+   * Immediately sends the topic as a message
    * 
-   * @param {string} topic - Topic string to populate in input
+   * @param {string} topic - Topic string to send as message
    */
-  const handleTopicClick = (topic) => {
-    setInputValue(topic);
+  const handleTopicClick = async (topic) => {
+    const userMessage = topic.trim();
+    const newUserMessage = { 
+      type: "user", 
+      text: userMessage,
+      timestamp: new Date().toISOString()
+    };
+    setMessages(prev => [...prev, newUserMessage]);
+    setInputValue("");
+    setError(null);
+    
+    // Show typing indicator
+    setIsTyping(true);
+    
+    // Get response from API
+    const response = await sendMessageToAPI(userMessage);
+    
+    setMessages(prev => [
+      ...prev,
+      { 
+        type: "bot", 
+        text: response.text, 
+        followUp: response.followUp,
+        timestamp: response.timestamp
+      }
+    ]);
+    setIsTyping(false);
   };
 
   /**
