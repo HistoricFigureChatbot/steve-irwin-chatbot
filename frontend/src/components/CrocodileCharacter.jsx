@@ -9,9 +9,9 @@ import { useState } from 'react';
  */
 export default function CrocodileCharacter() {
   const [crocSnapping, setCrocSnapping] = useState(false);
-  const [showSpeechBubble, setShowSpeechBubble] = useState(false);
+  const [showSpeechBubble, setShowSpeechBubble] = useState(true);
   const [clickCount, setClickCount] = useState(0);
-  const [speechMessage, setSpeechMessage] = useState('');
+  const [speechMessage, setSpeechMessage] = useState("Don't Click me I'll bite");
 
   // Speech bubble messages for different click counts
   const messages = [
@@ -46,9 +46,13 @@ export default function CrocodileCharacter() {
       }, 1500);
     }
     
-    // Reset speech bubble after 2 seconds
+    // Reset speech bubble after 2 seconds, then show default message
     setTimeout(() => {
       setShowSpeechBubble(false);
+      setTimeout(() => {
+        setSpeechMessage("Don't Click me I'll bite");
+        setShowSpeechBubble(true);
+      }, 300);
     }, 2000);
   };
 
