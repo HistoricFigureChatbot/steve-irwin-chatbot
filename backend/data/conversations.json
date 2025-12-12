@@ -1,7 +1,8 @@
 {
   "questionPatterns": {
     "howQuestions": ["how tall", "how big", "how heavy", "how fast", "how long", "how much", "how old", "how many"],
-    "whatQuestions": ["what color", "what colour", "what size", "what weight", "what speed", "what is", "what are"],
+    "whatQuestions": ["what color", "what colour", "what size", "what weight", "what speed", "what is", "what are","what's", "what do", "what does", "what did", "what can", "what will"],
+    "whoQuestions": ["who is", "who are", "who was", "who were", "who did", "who does", "who can","who's"],
     "whenQuestions": ["when do", "when did", "when does", "when was", "when were", "when is"],
     "whereQuestions": ["where do", "where did", "where does", "where is", "where are", "where can"],
     "whyQuestions": ["why do", "why did", "why does", "why is", "why are", "why can"],
