@@ -171,6 +171,46 @@ html[data-theme="dark"] .chat-page-container::after {
   max-height: 80vh;
 }
 
+.chat-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 1.5rem 0.5rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.reset-chat-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: var(--navbar-text);
+  border: 1px solid var(--input-border);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Akshar', system-ui, sans-serif;
+}
+
+.reset-chat-btn:hover {
+  background: var(--nav-link-hover-bg);
+  border-color: var(--nav-link-hover-text);
+  color: var(--nav-link-hover-text);
+  transform: translateY(-1px);
+}
+
+.reset-chat-btn:active {
+  transform: translateY(0);
+}
+
+.reset-chat-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
 .error-banner {
   background-color: #ff6b6b;
   color: white;
