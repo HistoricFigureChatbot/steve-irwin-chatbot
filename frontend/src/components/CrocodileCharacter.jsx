@@ -18,7 +18,7 @@ export default function CrocodileCharacter() {
     "I'll Snap!",
     "Getting closer...",
     "Almost there...",
-    "Here it comes!"
+    "Gotcha!"
   ];
 
   /**
