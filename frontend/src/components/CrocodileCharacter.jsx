@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 /**
  * CrocodileCharacter Component
@@ -12,6 +12,8 @@ export default function CrocodileCharacter() {
   const [showSpeechBubble, setShowSpeechBubble] = useState(true);
   const [clickCount, setClickCount] = useState(0);
   const [speechMessage, setSpeechMessage] = useState("Don't Click me I'll bite");
+  const [hasBitten, setHasBitten] = useState(false);
+  const timeoutRef = useRef(null);
 
   // Speech bubble messages for different click counts
   const messages = [
@@ -26,6 +28,14 @@ export default function CrocodileCharacter() {
    * Triggers snap animation and speech bubble display
    */
   const handleCrocClick = () => {
+    // Don't allow clicks after the bite
+    if (hasBitten) return;
+    
+    // Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    
     const newClickCount = clickCount + 1;
     setClickCount(newClickCount);
     
@@ -38,22 +48,27 @@ export default function CrocodileCharacter() {
     // Snap on the 4th click or later
     if (newClickCount >= 4) {
       setCrocSnapping(true);
+      setHasBitten(true);
       
-      // Reset snap animation and counter after 1.5 seconds
+      // Reset snap animation after 1.5 seconds
       setTimeout(() => {
         setCrocSnapping(false);
-        setClickCount(0);
       }, 1500);
+      
+      // Hide speech bubble after snap and don't bring it back
+      timeoutRef.current = setTimeout(() => {
+        setShowSpeechBubble(false);
+      }, 2000);
+    } else {
+      // For clicks before snap, reset to default message
+      timeoutRef.current = setTimeout(() => {
+        setShowSpeechBubble(false);
+        setTimeout(() => {
+          setSpeechMessage("Don't Click me I'll bite");
+          setShowSpeechBubble(true);
+        }, 300);
+      }, 2000);
     }
-    
-    // Reset speech bubble after 2 seconds, then show default message
-    setTimeout(() => {
-      setShowSpeechBubble(false);
-      setTimeout(() => {
-        setSpeechMessage("Don't Click me I'll bite");
-        setShowSpeechBubble(true);
-      }, 300);
-    }, 2000);
   };
 
   return (
