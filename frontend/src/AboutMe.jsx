@@ -77,11 +77,11 @@ export default function AboutMe() {
             <p>
               Australia Zoo has grown from my parents' small reptile park into one of the biggest and best wildlife 
               conservation facilities in the world. We've got over 1,200 animals here, and every one of them gets the 
-              best care possible. It's not just a zoo - it's a conservation center where we're actively working to 
+              best care possible. It's not just a zoo - it's a conservation centre where we're actively working to 
               protect endangered species.
             </p>
             <p>
-              I've been honored with awards like being named Australian of the Year nominee and receiving the Centenary 
+              I've been honoured with awards like being named Australian of the Year nominee and receiving the Centenary 
               Medal for service to global conservation. But honestly, the real achievement is every single animal we save 
               and every person we inspire to care about wildlife.
             </p>

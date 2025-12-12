@@ -36,7 +36,7 @@
       { "text": "Saltwater crocs can grow up to 7 meters long and weigh over 1000 kilograms! They're living dinosaurs, mate, and they deserve our respect and protection.", "probability": 0.15 },
       { "text": "Did you know crocodiles have been around for 200 million years? They survived the asteroid that killed the dinosaurs! That's resilience, mate!", "probability": 0.12 },
       { "text": "A croc's jaw can snap shut with 3,700 pounds of force per square inch! But the muscles for opening are so weak, you can hold their mouth shut with your bare hands. Doesn't mean you should though!", "probability": 0.1 },
-      { "text": "Crocodiles are incredible mothers! They guard their nests for three months and gently carry their babies to water in their mouths. Such beautiful behavior!", "probability": 0.07 }
+      { "text": "Crocodiles are incredible mothers! They guard their nests for three months and gently carry their babies to water in their mouths. Such beautiful behaviour!", "probability": 0.07 }
     ],
     "snakes": [
       { "text": "Ah, snakes! Beautiful creatures, mate! Australia has some of the most venomous snakes in the world, but they're not out to get ya. They're just protecting themselves!", "probability": 0.2 },
@@ -137,7 +137,7 @@
       { "text": "Dolphins use echolocation to hunt! They send out clicking sounds and listen for echoes to find fish in murky water. Nature's sonar!", "probability": 0.15 }
     ],
     "birds": [
-      { "text": "Australia has some of the most colorful birds on Earth! From cockatoos to lorikeets, they're absolutely stunning.", "probability": 0.2 },
+      { "text": "Australia has some of the most colourful birds on Earth! From cockatoos to lorikeets, they're absolutely stunning.", "probability": 0.2 },
       { "text": "The cassowary is one of the world's most dangerous birds! They can grow 2 meters tall and have a powerful kick with dagger-like claws.", "probability": 0.2 },
       { "text": "Kookaburras are known for their laugh-like call! They're the largest kingfisher species and eat snakes, lizards, and insects.", "probability": 0.15 },
       { "text": "Emus are the second-largest birds in the world! They can run up to 50 km/h and can't fly, but they're incredible runners.", "probability": 0.15 },
@@ -188,7 +188,7 @@
       { "text": "My wife is an incredible mother! She raises Bindi and Robert with the same love and respect for wildlife that my parents taught me!", "probability": 0.06 }
     ],
     "bindi": [
-      { "text": "Bindi Sue is named after my favorite crocodile and Sui, my loyal dog! She's got wildlife in her blood!", "probability": 0.17 },
+      { "text": "Bindi Sue is named after my favourite crocodile and Sui, my loyal dog! She's got wildlife in her blood!", "probability": 0.17 },
       { "text": "My daughter was handling snakes before she could walk! She's a natural with animals, just like her old man!", "probability": 0.16 },
       { "text": "Bindi comes on adventures with us all the time! By the time she's grown, she'll have seen more wildlife than most zoologists!", "probability": 0.15 },
       { "text": "Watching Bindi interact with animals is the proudest I've ever been! She has such respect and understanding, even at her age!", "probability": 0.13 },
@@ -216,7 +216,7 @@
     ]
   },
   "australia_zoo": [
-    { "text": "Australia Zoo is not just a zoo, it's a conservation center! We've got over 1,200 animals here, and every one of them gets the best care possible.", "probability": 0.2 },
+    { "text": "Australia Zoo is not just a zoo, it's a conservation centre! We've got over 1,200 animals here, and every one of them gets the best care possible.", "probability": 0.2 },
     { "text": "What started as my parents' small reptile park has grown into one of the biggest wildlife conservation facilities in the world! Crikey!", "probability": 0.18 },
     { "text": "The Crocoseum at Australia Zoo can hold 5,000 people! We do live shows where people can see crocs, birds, and snakes up close!", "probability": 0.15 },
     { "text": "My dad and mum started the Beerwah Reptile Park in 1970. I grew up surrounded by crocs, snakes, and all sorts of incredible wildlife!", "probability": 0.12 },
@@ -250,13 +250,13 @@
     { "text": "Kakadu National Park is a World Heritage site with incredible biodiversity! Saltwater crocodiles, wallabies, and thousands of bird species!", "probability": 0.08 }
   ],
   "safety": [
-    { "text": "Safety is all about knowledge and respect! If you understand an animal's behavior, you can work with them safely!", "probability": 0.13 },
+    { "text": "Safety is all about knowledge and respect! If you understand an animal's behaviour, you can work with them safely!", "probability": 0.13 },
     { "text": "People say I'm reckless, but everything I do is calculated! I've been training with dangerous animals since I was a kid!", "probability": 0.12 },
     { "text": "The key to handling venomous snakes is confidence and calm! If you panic, they panic - that's when people get bitten!", "probability": 0.11 },
     { "text": "I always have a safety team with me! John Stainton, my camera crew - they're trained and ready for anything!", "probability": 0.1 },
     { "text": "With crocodiles, you need to understand their attack patterns! They can move at 11 mph in short bursts - faster than you can run!", "probability": 0.09 },
     { "text": "I never encourage people to do what I do! I've had decades of training. Always call professionals for dangerous wildlife!", "probability": 0.09 },
-    { "text": "Protective gear is important, but knowledge is your best defense! Understanding animal body language can save your life!", "probability": 0.08 },
+    { "text": "Protective gear is important, but knowledge is your best defence! Understanding animal body language can save your life!", "probability": 0.08 },
     { "text": "Even after thousands of captures, I still get nervous around big crocs! That healthy fear keeps me sharp and safe!", "probability": 0.08 },
     { "text": "First aid training is essential! Snake bite kits, pressure bandages - everyone working with wildlife should know this stuff!", "probability": 0.07 },
     { "text": "The most dangerous thing is complacency! The moment you think you know it all, that's when accidents happen!", "probability": 0.07 },
@@ -284,7 +284,7 @@
     { "text": "I want to inspire the next generation of conservationists! If kids grow up loving wildlife, they'll protect it!", "probability": 0.12 },
     { "text": "People think I'm crazy for loving crocodiles and snakes! But once you understand them, you can't help but be amazed!", "probability": 0.11 },
     { "text": "This isn't just a job - it's my calling! I'd do this for free if I didn't need to fund conservation work!", "probability": 0.1 },
-    { "text": "Every animal interaction is a privilege! Whether it's a tiny frog or a massive saltwater croc, I'm honored to share their space!", "probability": 0.1 },
+    { "text": "Every animal interaction is a privilege! Whether it's a tiny frog or a massive saltwater croc, I'm honoured to share their space!", "probability": 0.1 },
     { "text": "The thrill never gets old! My heart still races when I see a wild crocodile or pick up a venomous snake!", "probability": 0.09 },
     { "text": "I want to be remembered as someone who made a difference! Not as a TV personality, but as a wildlife warrior!", "probability": 0.09 },
     { "text": "My passion started in childhood and it's only grown stronger! Every day I learn something new about these amazing creatures!", "probability": 0.08 },
@@ -295,7 +295,7 @@
     { "text": "Danger is relative! What seems dangerous to most people is just another day at the office for me!", "probability": 0.12 },
     { "text": "The most dangerous animals are often the most misunderstood! That's why education is so important!", "probability": 0.11 },
     { "text": "I've been bitten, scratched, and tail-whipped more times than I can count! But I've never been seriously injured because I respect the animals!", "probability": 0.11 },
-    { "text": "A 5-meter saltwater croc has enough bite force to crush a car! But if you understand their behavior, you can work safely!", "probability": 0.1 },
+    { "text": "A 5-meter saltwater croc has enough bite force to crush a car! But if you understand their behaviour, you can work safely!", "probability": 0.1 },
     { "text": "The inland taipan is the most venomous snake in the world! One bite has enough venom to kill 100 adults. But they're shy - they don't want to waste venom on us!", "probability": 0.1 },
     { "text": "Box jellyfish are invisible killers in our waters! Their sting can stop your heart in minutes. Always wear a stinger suit!", "probability": 0.09 },
     { "text": "People fear sharks, but you're more likely to be struck by lightning! We need to protect sharks, not fear them!", "probability": 0.09 },
@@ -344,7 +344,7 @@
           "followUp": "Ask me about: hunting or breeding!"
         },
         { 
-          "text": "I've been catching crocs since I was nine! The key is understanding their behavior and never underestimating them. Every croc is different! Interested in their habitat or breeding programs?", 
+          "text": "I've been catching crocs since I was nine! The key is understanding their behaviour and never underestimating them. Every croc is different! Interested in their habitat or breeding programmes?", 
           "probability": 0.4,
           "followUp": "Try asking: habitat or breeding!"
         }
@@ -417,7 +417,7 @@
       ],
       "bindi": [
         { 
-          "text": "Bindi's named after my favorite crocodile! She's got such a natural gift with animals. At her age, she's already handling venomous snakes! Want to hear about Robert or Terri?", 
+          "text": "Bindi's named after my favourite crocodile! She's got such a natural gift with animals. At her age, she's already handling venomous snakes! Want to hear about Robert or Terri?", 
           "probability": 0.5,
           "followUp": "Try asking about: Robert or Terri!"
         },

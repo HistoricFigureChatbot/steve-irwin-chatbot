@@ -195,7 +195,7 @@ describe('UT11: Keyboard Navigation', () => {
   });
 });
 
-describe('ChatInput - Component Behavior', () => {
+describe('ChatInput - Component Behaviour', () => {
   
   test('Should call onChange when user types', async () => {
     const user = userEvent.setup();
