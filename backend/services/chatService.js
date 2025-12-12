@@ -27,13 +27,13 @@ async function ensureInitialized() {
   if (!initializationPromise) {
     initializationPromise = (async () => {
       try {
-        console.log('🚀 Initializing chatbot data...');
+        console.log('Initializing chatbot data...');
         await loadResponses();
         await loadConversations();
         isInitialized = true;
-        console.log('✅ Chatbot data initialized successfully');
+        console.log('Chatbot data initialized successfully');
       } catch (error) {
-        console.error('❌ Failed to initialize chatbot data:', error);
+        console.error('Failed to initialize chatbot data:', error);
         initializationPromise = null; // Allow retry on next request
         throw error;
       }
@@ -77,7 +77,7 @@ export async function processMessage(message, userId = 'default') {
   const dialogueNode = findDialogueTreeNode(message, userSession.currentTree);
 
   if (dialogueNode) {
-    console.log(`🌳 In dialogue tree: ${dialogueNode.tree}.${dialogueNode.node}`);
+    console.log(`In dialogue tree: ${dialogueNode.tree}.${dialogueNode.node}`);
 
     // Update user session
     userSession.inDialogueTree = true;
@@ -108,7 +108,7 @@ export async function processMessage(message, userId = 'default') {
   const greeting = isGreeting(message);
   const farewell = isFarewell(message);
 
-  console.log(`📊 Analysis - Question: ${isQuestion}, Greeting: ${greeting}, Farewell: ${farewell}`);
+  console.log(`Analysis - Question: ${isQuestion}, Greeting: ${greeting}, Farewell: ${farewell}`);
 
   // Step 2: Handle greetings (exit dialogue tree)
   if (greeting) {
@@ -156,7 +156,7 @@ export async function processMessage(message, userId = 'default') {
     userSession.inDialogueTree = false;
     userSession.currentTree = null;
 
-    console.log('🤖 No topic match - using LLM');
+    console.log('No topic match - using LLM');
 
     // Build context from conversation history using sessionManager
     const historyContext = getHistoryContext(userId, 4);
@@ -179,7 +179,7 @@ export async function processMessage(message, userId = 'default') {
 
   // Step 6: Specific question about a topic - use LLM with context
   if (isQuestion) {
-    console.log('🤖 Specific question detected - using LLM with context');
+    console.log('Specific question detected - using LLM with context');
 
     // Build context from matched topics using responseSelector
     const contextParts = [];
@@ -216,12 +216,12 @@ export async function processMessage(message, userId = 'default') {
 
   // Step 7: General topic mention - use scripted response
   // Check if this should start a dialogue tree using dialogueTreeHandler
-  console.log('📝 General topic mention - using scripted response');
+  console.log('General topic mention - using scripted response');
   const topic = matchedTopics[0];
 
   // Check if there's a dialogue tree for this topic name
   if (hasDialogueTree(topic.name)) {
-    console.log(`🌳 Starting dialogue tree: ${topic.name}`);
+    console.log(`Starting dialogue tree: ${topic.name}`);
 
     userSession.inDialogueTree = true;
     userSession.currentTree = topic.name;
@@ -252,7 +252,7 @@ export async function processMessage(message, userId = 'default') {
   const responseText = selectResponseByProbability(topicResponses);
 
   if (!responseText) {
-    console.log('⚠️ No scripted response - falling back to LLM');
+    console.log('WARNING: No scripted response - falling back to LLM');
 
     const llmResponse = await getLLMResponse(message);
 

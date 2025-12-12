@@ -79,19 +79,19 @@ export function isGreeting(message) {
   
   if (!greetingTopic) return false;
   
-  console.log(`🔍 Checking if "${message}" is a greeting...`);
+  console.log(`Checking if "${message}" is a greeting...`);
   
   for (const keyword of greetingTopic.keywords) {
     // Use whole-word matching to avoid false positives like "which" matching "hi"
     const isMatch = matchesWholeWord(messageLower, keyword);
     console.log(`  - Checking keyword "${keyword}": ${isMatch}`);
     if (isMatch) {
-      console.log(`👋 Detected greeting: "${keyword}"`);
+      console.log(`Detected greeting: "${keyword}"`);
       return true;
     }
   }
   
-  console.log(`  ❌ No greeting match found`);
+  console.log(`  No greeting match found`);
   return false;
 }
 
@@ -109,7 +109,7 @@ export function isFarewell(message) {
   for (const keyword of farewellTopic.keywords) {
     // Use whole-word matching
     if (matchesWholeWord(messageLower, keyword)) {
-      console.log(`👋 Detected farewell: "${keyword}"`);
+      console.log(`Detected farewell: "${keyword}"`);
       return true;
     }
   }
@@ -130,7 +130,7 @@ export function isSpecificQuestion(message) {
     const patterns = questionPatterns[category];
     for (const pattern of patterns) {
       if (messageLower.indexOf(pattern) !== -1) {
-        console.log(`🔍 Detected question pattern: "${pattern}" (${category})`);
+        console.log(`Detected question pattern: "${pattern}" (${category})`);
         return true;
       }
     }
@@ -161,7 +161,7 @@ export function findTopic(message) {
     // Check if any keyword from this topic appears in the message using whole-word matching
     for (const keyword of topicData.keywords) {
       if (matchesWholeWord(messageLower, keyword)) {
-        console.log(`✅ Matched topic: ${topicName} (keyword: "${keyword}")`);
+        console.log(`Matched topic: ${topicName} (keyword: "${keyword}")`);
         matchedTopics.push({
           name: topicName,
           responseKey: topicData.responseKey
@@ -173,7 +173,7 @@ export function findTopic(message) {
   
   // No match found
   if (matchedTopics.length === 0) {
-    console.log('⚠️ No topic match found');
+    console.log('WARNING: No topic match found');
     return [];
   }
   

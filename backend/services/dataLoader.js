@@ -48,7 +48,7 @@ export async function loadResponses() {
 
     const responsesData = JSON.parse(data);
     setResponses(responsesData);
-    console.log(`✅ Loaded chatbot responses from ${loadedFrom}`);
+    console.log(`Loaded chatbot responses from ${loadedFrom}`);
     return responsesData;
   } catch (error) {
     console.error('Error loading responses:', error);
@@ -97,7 +97,7 @@ export async function loadConversations() {
     setQuestionPatterns(patterns);
     setDialogueTrees(trees);
 
-    console.log(`✅ Loaded conversation topics and question patterns from ${loadedFrom}`);
+    console.log(`Loaded conversation topics and question patterns from ${loadedFrom}`);
     return topics;
   } catch (error) {
     console.error('Error loading conversations:', error);

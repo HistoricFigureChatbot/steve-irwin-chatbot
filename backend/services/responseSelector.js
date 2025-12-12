@@ -24,7 +24,7 @@ export function getResponsesByPath(path) {
   
   for (const key of keys) {
     if (current[key] === undefined) {
-      console.log(`⚠️ Path not found: ${path}`);
+      console.log(`WARNING: Path not found: ${path}`);
       return null;
     }
     current = current[key];

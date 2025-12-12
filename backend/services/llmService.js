@@ -145,7 +145,7 @@ Respond as Steve would - with passion, respect for nature, and infectious enthus
       // Check if response is in English (basic check for non-Latin characters)
       const hasNonEnglishChars = /[^\x00-\x7F\u00C0-\u00FF]/.test(llmResponse);
       if (hasNonEnglishChars) {
-        console.log('⚠️ Response contains non-English characters, regenerating...');
+        console.log('WARNING: Response contains non-English characters, regenerating...');
         continue;
       }
 
@@ -153,10 +153,10 @@ Respond as Steve would - with passion, respect for nature, and infectious enthus
       const isValid = await validateSteveIrwinResponse(llmResponse);
 
       if (isValid) {
-        console.log('✓ Response validated as authentic Steve Irwin');
+        console.log('Response validated as authentic Steve Irwin');
         return llmResponse;
       } else {
-        console.log('✗ Response failed validation, regenerating...');
+        console.log('Response failed validation, regenerating...');
         if (attempts >= maxAttempts) {
           console.log('Max attempts reached, using last response');
           return llmResponse;

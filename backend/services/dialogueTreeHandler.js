@@ -76,7 +76,7 @@ export function findDialogueTreeNode(message, currentTree = null) {
         if (keywordLower.indexOf(' ') !== -1) {
           // Multi-word phrase - use contains
           if (messageLower.indexOf(keywordLower) !== -1) {
-            console.log(`🌳 Found dialogue tree node: ${currentTree}.${nodeName}`);
+            console.log(`Found dialogue tree node: ${currentTree}.${nodeName}`);
             return {
               tree: currentTree,
               node: nodeName,
@@ -86,7 +86,7 @@ export function findDialogueTreeNode(message, currentTree = null) {
         } else {
           // Single word - use whole-word matching
           if (matchesWholeWord(messageLower, keywordLower)) {
-            console.log(`🌳 Found dialogue tree node: ${currentTree}.${nodeName}`);
+            console.log(`Found dialogue tree node: ${currentTree}.${nodeName}`);
             return {
               tree: currentTree,
               node: nodeName,
@@ -112,7 +112,7 @@ export function findDialogueTreeNode(message, currentTree = null) {
         if (keywordLower.indexOf(' ') !== -1) {
           // Multi-word phrase
           if (messageLower.indexOf(keywordLower) !== -1) {
-            console.log(`🌳 Found dialogue tree: ${treeName}.${nodeName}`);
+            console.log(`Found dialogue tree: ${treeName}.${nodeName}`);
             return {
               tree: treeName,
               node: nodeName,
@@ -122,7 +122,7 @@ export function findDialogueTreeNode(message, currentTree = null) {
         } else {
           // Single word
           if (matchesWholeWord(messageLower, keywordLower)) {
-            console.log(`🌳 Found dialogue tree: ${treeName}.${nodeName}`);
+            console.log(`Found dialogue tree: ${treeName}.${nodeName}`);
             return {
               tree: treeName,
               node: nodeName,

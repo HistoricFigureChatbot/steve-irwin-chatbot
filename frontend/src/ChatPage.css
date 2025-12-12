@@ -94,7 +94,7 @@ html[data-theme="dark"] .chat-page-container::after {
 .croc-container {
   position: fixed;
   right: 1%;
-  bottom: 0;
+  bottom: 50px;
   z-index: 10;
 }
 

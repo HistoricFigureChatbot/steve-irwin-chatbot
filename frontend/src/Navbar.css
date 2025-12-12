@@ -83,7 +83,8 @@
   align-items: center;
   gap: 2rem;
   flex: 1;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 3rem;
 }
 
 .nav-link {
@@ -233,6 +234,8 @@
     visibility: hidden;
     transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     z-index: 999;
+    justify-content: flex-start;
+    margin-left: 0;
   }
   
   .navbar-center.mobile-open {
