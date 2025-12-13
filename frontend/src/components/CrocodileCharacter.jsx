@@ -55,9 +55,16 @@ export default function CrocodileCharacter() {
         setCrocSnapping(false);
       }, 1500);
       
-      // Hide speech bubble after snap and don't bring it back
+      // Hide speech bubble and reset everything after snap
       timeoutRef.current = setTimeout(() => {
         setShowSpeechBubble(false);
+        // Reset all states to allow animation to work again
+        setTimeout(() => {
+          setClickCount(0);
+          setHasBitten(false);
+          setSpeechMessage("Don't Click me I'll bite");
+          setShowSpeechBubble(true);
+        }, 500);
       }, 2000);
     } else {
       // For clicks before snap, reset to default message
