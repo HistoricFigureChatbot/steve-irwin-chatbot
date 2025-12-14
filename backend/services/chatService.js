@@ -73,7 +73,60 @@ export async function processMessage(message, userId = 'default') {
   // Store user message in history using sessionManager
   addToHistory(userId, 'user', message);
 
-  // Step 0: Check if user is in a dialogue tree
+  // Step 0: Check message type using messageAnalyzer FIRST
+  // This ensures questions get LLM responses even if they contain dialogue tree keywords
+  const isQuestion = isSpecificQuestion(message);
+  const greeting = isGreeting(message);
+  const farewell = isFarewell(message);
+
+  console.log(`Analysis - Question: ${isQuestion}, Greeting: ${greeting}, Farewell: ${farewell}`);
+
+  // Step 1: Handle specific questions FIRST - always use LLM
+  // This takes priority over dialogue trees to ensure dynamic answers for questions
+  if (isQuestion) {
+    console.log('Specific question detected - using LLM with context');
+
+    // Exit any dialogue tree when asking a question
+    userSession.inDialogueTree = false;
+    userSession.currentTree = null;
+
+    // Find topic matches for context
+    const matchedTopics = findTopic(message);
+
+    // Build context from matched topics using responseSelector
+    const contextParts = [];
+    for (const topic of matchedTopics) {
+      const topicResponses = getResponsesByPath(topic.responseKey);
+      if (topicResponses && Array.isArray(topicResponses)) {
+        // Take first 2 responses as context
+        const contextTexts = topicResponses.slice(0, 2).map(r => r.text);
+        contextParts.push(...contextTexts);
+      }
+    }
+
+    // Add conversation history to context using sessionManager
+    const historyContext = getHistoryContext(userId, 4);
+
+    // Create enhanced prompt with Steve Irwin context
+    const context = contextParts.join(' ');
+    const enhancedMessage = (historyContext ? historyContext + '\n\n' : '') +
+      `You are Steve Irwin, the legendary wildlife expert and conservationist. Based on your knowledge: ${context}\n\nNow answer this question in Steve Irwin's enthusiastic style: ${message}`;
+
+    const llmResponse = await getLLMResponse(enhancedMessage);
+
+    // Store bot response in history
+    addToHistory(userId, 'assistant', llmResponse);
+
+    return {
+      response: llmResponse,
+      topics: matchedTopics.length > 0 ? matchedTopics.map(t => t.name) : ['default'],
+      isLLM: true,
+      context: 'enhanced',
+      inDialogueTree: false
+    };
+  }
+
+  // Step 2: Check if user is in a dialogue tree (only for non-questions)
   const dialogueNode = findDialogueTreeNode(message, userSession.currentTree);
 
   if (dialogueNode) {
@@ -103,14 +156,7 @@ export async function processMessage(message, userId = 'default') {
     }
   }
 
-  // Step 1: Check message type using messageAnalyzer
-  const isQuestion = isSpecificQuestion(message);
-  const greeting = isGreeting(message);
-  const farewell = isFarewell(message);
-
-  console.log(`Analysis - Question: ${isQuestion}, Greeting: ${greeting}, Farewell: ${farewell}`);
-
-  // Step 2: Handle greetings (exit dialogue tree)
+  // Step 3: Handle greetings (exit dialogue tree)
   if (greeting) {
     userSession.inDialogueTree = false;
     userSession.currentTree = null;
@@ -129,7 +175,7 @@ export async function processMessage(message, userId = 'default') {
     };
   }
 
-  // Step 3: Handle farewells (exit dialogue tree)
+  // Step 4: Handle farewells (exit dialogue tree)
   if (farewell) {
     userSession.inDialogueTree = false;
     userSession.currentTree = null;
@@ -148,10 +194,10 @@ export async function processMessage(message, userId = 'default') {
     };
   }
 
-  // Step 4: Find topic matches using messageAnalyzer
+  // Step 5: Find topic matches using messageAnalyzer
   const matchedTopics = findTopic(message);
 
-  // Step 5: No topic found - use LLM (exit dialogue tree)
+  // Step 6: No topic found - use LLM (exit dialogue tree)
   if (matchedTopics.length === 0) {
     userSession.inDialogueTree = false;
     userSession.currentTree = null;
@@ -173,43 +219,6 @@ export async function processMessage(message, userId = 'default') {
       response: llmResponse,
       topics: ['default'],
       isLLM: true,
-      inDialogueTree: false
-    };
-  }
-
-  // Step 6: Specific question about a topic - use LLM with context
-  if (isQuestion) {
-    console.log('Specific question detected - using LLM with context');
-
-    // Build context from matched topics using responseSelector
-    const contextParts = [];
-    for (const topic of matchedTopics) {
-      const topicResponses = getResponsesByPath(topic.responseKey);
-      if (topicResponses && Array.isArray(topicResponses)) {
-        // Take first 2 responses as context
-        const contextTexts = topicResponses.slice(0, 2).map(r => r.text);
-        contextParts.push(...contextTexts);
-      }
-    }
-
-    // Add conversation history to context using sessionManager
-    const historyContext = getHistoryContext(userId, 4);
-
-    // Create enhanced prompt with Steve Irwin context
-    const context = contextParts.join(' ');
-    const enhancedMessage = (historyContext ? historyContext + '\n\n' : '') +
-      `You are Steve Irwin, the legendary wildlife expert and conservationist. Based on your knowledge: ${context}\n\nNow answer this question in Steve Irwin's enthusiastic style: ${message}`;
-
-    const llmResponse = await getLLMResponse(enhancedMessage);
-
-    // Store bot response in history
-    addToHistory(userId, 'assistant', llmResponse);
-
-    return {
-      response: llmResponse,
-      topics: matchedTopics.map(t => t.name),
-      isLLM: true,
-      context: 'enhanced',
       inDialogueTree: false
     };
   }

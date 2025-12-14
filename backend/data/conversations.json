@@ -1,116 +1,314 @@
 {
   "questionPatterns": {
-    "howQuestions": ["how tall", "how big", "how heavy", "how fast", "how long", "how much", "how old", "how many"],
-    "whatQuestions": ["what color", "what colour", "what size", "what weight", "what speed", "what is", "what are","what's", "what do", "what does", "what did", "what can", "what will"],
-    "whoQuestions": ["who is", "who are", "who was", "who were", "who did", "who does", "who can","who's"],
-    "whenQuestions": ["when do", "when did", "when does", "when was", "when were", "when is"],
-    "whereQuestions": ["where do", "where did", "where does", "where is", "where are", "where can"],
-    "whyQuestions": ["why do", "why did", "why does", "why is", "why are", "why can"],
-    "whichQuestions": ["which", "which one", "which animal", "which is"],
-    "areQuestions": ["are elephants", "are tigers", "are crocodiles", "are snakes", "are they", "are there", "are you"],
-    "canQuestions": ["can they", "can it", "can you", "can a", "can an"],
-    "doQuestions": ["do they", "does it", "did they", "does a", "do you"]
+    "howQuestions": [
+      "how tall",
+      "how big",
+      "how heavy",
+      "how fast",
+      "how long",
+      "how much",
+      "how old",
+      "how many"
+    ],
+    "whatQuestions": [
+      "what color",
+      "what colour",
+      "what size",
+      "what weight",
+      "what speed",
+      "what is",
+      "what are",
+      "what's",
+      "what do",
+      "what does",
+      "what did",
+      "what can",
+      "what will"
+    ],
+    "whoQuestions": [
+      "who is",
+      "who are",
+      "who was",
+      "who were",
+      "who did",
+      "who does",
+      "who can",
+      "who's"
+    ],
+    "whenQuestions": [
+      "when do",
+      "when did",
+      "when does",
+      "when was",
+      "when were",
+      "when is"
+    ],
+    "whereQuestions": [
+      "where do",
+      "where did",
+      "where does",
+      "where is",
+      "where are",
+      "where can"
+    ],
+    "whyQuestions": [
+      "why do",
+      "why did",
+      "why does",
+      "why is",
+      "why are",
+      "why can"
+    ],
+    "whichQuestions": [
+      "which",
+      "which one",
+      "which animal",
+      "which is"
+    ],
+    "areQuestions": [
+      "are elephants",
+      "are tigers",
+      "are crocodiles",
+      "are snakes",
+      "are they",
+      "are there",
+      "are you"
+    ],
+    "canQuestions": [
+      "can they",
+      "can it",
+      "can you",
+      "can a",
+      "can an"
+    ],
+    "doQuestions": [
+      "do they",
+      "does it",
+      "did they",
+      "does a",
+      "do you"
+    ]
   },
-
   "topics": {
     "greetings": {
-      "keywords": ["hello", "hi", "hey", "g'day", "howdy", "greetings"],
+      "keywords": [
+        "hello",
+        "hi",
+        "hey",
+        "g'day",
+        "howdy",
+        "greetings"
+      ],
       "responseKey": "greetings"
     },
     "farewells": {
-      "keywords": ["bye", "goodbye", "see you", "farewell", "later", "cheers"],
+      "keywords": [
+        "bye",
+        "goodbye",
+        "see you",
+        "farewell",
+        "later",
+        "cheers"
+      ],
       "responseKey": "farewells"
     },
     "crocodiles": {
-      "keywords": ["crocodile", "croc", "alligator", "salty", "saltie"],
+      "keywords": [
+        "crocodile",
+        "croc",
+        "alligator",
+        "salty",
+        "saltie"
+      ],
       "responseKey": "animals.crocodiles"
     },
     "snakes": {
-      "keywords": ["snake", "python", "viper", "cobra", "taipan", "serpent"],
+      "keywords": [
+        "snake",
+        "python",
+        "viper",
+        "cobra",
+        "taipan",
+        "serpent"
+      ],
       "responseKey": "animals.snakes"
     },
     "spiders": {
-      "keywords": ["spider", "tarantula", "arachnid", "funnel web", "huntsman"],
+      "keywords": [
+        "spider",
+        "tarantula",
+        "arachnid",
+        "funnel web",
+        "huntsman"
+      ],
       "responseKey": "animals.spiders"
     },
     "kangaroos": {
-      "keywords": ["kangaroo", "roo", "wallaby", "joey", "marsupial"],
+      "keywords": [
+        "kangaroo",
+        "roo",
+        "wallaby",
+        "joey",
+        "marsupial"
+      ],
       "responseKey": "animals.kangaroos"
     },
     "koalas": {
-      "keywords": ["koala", "bear"],
+      "keywords": [
+        "koala",
+        "bear"
+      ],
       "responseKey": "animals.koalas"
     },
     "sharks": {
-      "keywords": ["shark", "great white", "jaws"],
+      "keywords": [
+        "shark",
+        "great white",
+        "jaws"
+      ],
       "responseKey": "animals.sharks"
     },
     "tigers": {
-      "keywords": ["tiger", "big cat"],
+      "keywords": [
+        "tiger",
+        "big cat"
+      ],
       "responseKey": "animals.tigers"
     },
     "elephants": {
-      "keywords": ["elephant", "trunk"],
+      "keywords": [
+        "elephant",
+        "trunk"
+      ],
       "responseKey": "animals.elephants"
     },
     "family": {
-      "keywords": ["family", "kids", "children"],
+      "keywords": [
+        "family",
+        "kids",
+        "children"
+      ],
       "responseKey": "family.kids"
     },
     "bindi": {
-      "keywords": ["bindi"],
+      "keywords": [
+        "bindi"
+      ],
       "responseKey": "family.bindi"
     },
     "robert": {
-      "keywords": ["robert"],
+      "keywords": [
+        "robert"
+      ],
       "responseKey": "family.robert"
     },
     "terri": {
-      "keywords": ["terri", "wife"],
+      "keywords": [
+        "terri",
+        "wife"
+      ],
       "responseKey": "family.terri"
     },
     "parents": {
-      "keywords": ["dad", "mum", "mom", "parents", "father", "mother"],
+      "keywords": [
+        "dad",
+        "mum",
+        "mom",
+        "parents",
+        "father",
+        "mother"
+      ],
       "responseKey": "family.parents"
     },
     "conservation": {
-      "keywords": ["conservation", "protect", "save", "wildlife warrior", "preserve"],
+      "keywords": [
+        "conservation",
+        "protect",
+        "save",
+        "wildlife warrior",
+        "preserve"
+      ],
       "responseKey": "conservation.general"
     },
     "endangered": {
-      "keywords": ["endangered", "extinction", "threatened"],
+      "keywords": [
+        "endangered",
+        "extinction",
+        "threatened"
+      ],
       "responseKey": "conservation.endangered"
     },
     "climate": {
-      "keywords": ["climate", "warming", "temperature"],
+      "keywords": [
+        "climate",
+        "warming",
+        "temperature"
+      ],
       "responseKey": "conservation.climate"
     },
     "australia_zoo": {
-      "keywords": ["australia zoo", "zoo", "crocoseum", "park"],
+      "keywords": [
+        "australia zoo",
+        "zoo",
+        "crocoseum",
+        "park"
+      ],
       "responseKey": "australia_zoo"
     },
     "television": {
-      "keywords": ["tv", "television", "show", "crocodile hunter", "filming"],
+      "keywords": [
+        "tv",
+        "television",
+        "show",
+        "crocodile hunter",
+        "filming"
+      ],
       "responseKey": "television"
     },
     "australia": {
-      "keywords": ["australia", "outback", "barrier reef"],
+      "keywords": [
+        "australia",
+        "outback",
+        "barrier reef"
+      ],
       "responseKey": "australia"
     },
     "safety": {
-      "keywords": ["safe", "safety", "careful", "stay safe"],
+      "keywords": [
+        "safe",
+        "safety",
+        "careful",
+        "stay safe"
+      ],
       "responseKey": "safety"
     },
     "facts": {
-      "keywords": ["fact", "tell me a fact", "did you know"],
+      "keywords": [
+        "fact",
+        "tell me a fact",
+        "did you know"
+      ],
       "responseKey": "facts"
     },
     "passion": {
-      "keywords": ["passion", "love", "favorite", "why", "inspire"],
+      "keywords": [
+        "passion",
+        "love",
+        "favorite",
+        "why",
+        "inspire"
+      ],
       "responseKey": "passion"
     },
     "danger": {
-      "keywords": ["danger", "dangerous", "scary", "afraid", "fear", "risky"],
+      "keywords": [
+        "danger",
+        "dangerous",
+        "scary",
+        "afraid",
+        "fear",
+        "risky"
+      ],
       "responseKey": "danger"
     },
     "default": {
@@ -118,73 +316,154 @@
       "responseKey": "default"
     }
   },
-
   "dialogueTrees": {
     "crocodiles": {
       "start": {
-        "keywords": ["more about crocodiles", "tell me more croc", "learn about crocodiles", "crocodile details"],
+        "keywords": [
+          "more about crocodiles",
+          "tell me about crocs",
+          "learn about crocodiles",
+          "crocodile details",
+          "tell me about crocodiles"
+        ],
         "responseKey": "dialogueTrees.crocodiles.start"
       },
       "habitat": {
-        "keywords": ["habitat", "where do they live", "where are they found", "location"],
+        "keywords": [
+          "habitat",
+          "where do they live",
+          "where are they found",
+          "location"
+        ],
         "responseKey": "dialogueTrees.crocodiles.habitat"
       },
       "hunting": {
-        "keywords": ["hunting", "hunt", "how do they hunt", "death roll", "ambush", "prey"],
+        "keywords": [
+          "hunting",
+          "hunt",
+          "how do they hunt",
+          "death roll",
+          "ambush",
+          "prey"
+        ],
         "responseKey": "dialogueTrees.crocodiles.hunting"
       },
       "catching": {
-        "keywords": ["catching", "catch", "capture", "how to catch", "how do you catch"],
+        "keywords": [
+          "catching",
+          "catch",
+          "capture",
+          "how to catch",
+          "how do you catch"
+        ],
         "responseKey": "dialogueTrees.crocodiles.catching"
       },
       "breeding": {
-        "keywords": ["breeding", "breed", "eggs", "reproduction", "babies", "hatchlings"],
+        "keywords": [
+          "breeding",
+          "breed",
+          "eggs",
+          "reproduction",
+          "babies",
+          "hatchlings"
+        ],
         "responseKey": "dialogueTrees.crocodiles.breeding"
       }
     },
     "snakes": {
       "start": {
-        "keywords": ["more about snakes", "tell me more snake", "learn about snakes", "snake details"],
+        "keywords": [
+          "more about snakes",
+          "tell me about snakes",
+          "learn about snakes",
+          "snake details"
+        ],
         "responseKey": "dialogueTrees.snakes.start"
       },
       "venomous": {
-        "keywords": ["venomous", "venom", "poisonous", "taipan", "brown snake", "deadly"],
+        "keywords": [
+          "venomous",
+          "venom",
+          "poisonous",
+          "taipan",
+          "brown snake",
+          "deadly"
+        ],
         "responseKey": "dialogueTrees.snakes.venomous"
       },
       "pythons": {
-        "keywords": ["python", "constrictor", "squeeze", "non venomous"],
+        "keywords": [
+          "python",
+          "constrictor",
+          "squeeze",
+          "non venomous"
+        ],
         "responseKey": "dialogueTrees.snakes.pythons"
       }
     },
     "family": {
       "start": {
-        "keywords": ["more about family", "tell me about your family", "family details"],
+        "keywords": [
+          "more about family",
+          "tell me about your family",
+          "family details"
+        ],
         "responseKey": "dialogueTrees.family.start"
       },
       "terri": {
-        "keywords": ["terri", "wife", "your wife", "spouse"],
+        "keywords": [
+          "terri",
+          "wife",
+          "your wife",
+          "spouse"
+        ],
         "responseKey": "dialogueTrees.family.terri"
       },
       "bindi": {
-        "keywords": ["bindi", "daughter", "your daughter"],
+        "keywords": [
+          "bindi",
+          "daughter",
+          "your daughter"
+        ],
         "responseKey": "dialogueTrees.family.bindi"
       },
       "robert": {
-        "keywords": ["robert", "son", "your son", "little robert"],
+        "keywords": [
+          "robert",
+          "son",
+          "your son",
+          "little robert"
+        ],
         "responseKey": "dialogueTrees.family.robert"
       }
     },
     "conservation": {
       "start": {
-        "keywords": ["more about conservation", "tell me about conservation", "conservation work"],
+        "keywords": [
+          "more about conservation",
+          "tell me about conservation",
+          "conservation work"
+        ],
         "responseKey": "dialogueTrees.conservation.start"
       },
       "endangered": {
-        "keywords": ["endangered", "extinction", "threatened", "endangered species", "species at risk"],
+        "keywords": [
+          "endangered",
+          "extinction",
+          "threatened",
+          "endangered species",
+          "species at risk"
+        ],
         "responseKey": "dialogueTrees.conservation.endangered"
       },
       "climate": {
-        "keywords": ["climate", "climate change", "global warming", "warming", "temperature"],
+        "keywords": [
+          "climate",
+          "climate change",
+          "global warming",
+          "warming",
+          "temperature"
+        ],
         "responseKey": "dialogueTrees.conservation.climate"
       }
     }
